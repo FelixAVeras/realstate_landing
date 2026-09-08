@@ -1,0 +1,2885 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Quintas Towers | CONNUVAL</title>
+
+<meta
+name="description"
+content="Quintas Towers. Proyecto residencial en Madre Vieja Sur, San Cristóbal. Apartamentos de 1, 2 y 3 habitaciones."
+>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root{
+
+    --olive:#344238;
+    --olive-light:#526253;
+
+    --sand:#e8dfd1;
+
+    --terracotta:#b77c63;
+
+    --cream:#f7f4ee;
+
+    --white:#ffffff;
+
+    --black:#1d211d;
+
+    --gray:#73766f;
+
+    --line:#ddd9d0;
+
+    --serif:"Cormorant Garamond", serif;
+
+    --sans:"Manrope", sans-serif;
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--cream);
+    color:var(--black);
+
+    font-family:var(--sans);
+
+    line-height:1.6;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+.container{
+    width:min(1180px,90%);
+    margin:auto;
+}
+
+.section{
+    padding:110px 0;
+}
+
+.label{
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:2.5px;
+
+    color:var(--olive-light);
+
+    margin-bottom:18px;
+}
+
+.title{
+    font-family:var(--serif);
+
+    font-size:clamp(48px,6vw,78px);
+
+    font-weight:500;
+
+    line-height:.95;
+}
+
+.description{
+    color:var(--gray);
+
+    font-size:14px;
+
+    line-height:1.9;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+    padding:25px 0;
+
+    background:var(--cream);
+
+}
+
+.header-inner{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+.logo{
+
+    color:var(--olive);
+
+    font-weight:700;
+
+    font-size:19px;
+
+    letter-spacing:2px;
+}
+
+.logo span{
+
+    display:block;
+
+    font-size:7px;
+
+    letter-spacing:2px;
+
+    font-weight:500;
+
+}
+
+nav{
+
+    display:flex;
+
+    gap:30px;
+
+}
+
+nav a{
+
+    font-size:11px;
+
+    color:#656960;
+
+}
+
+nav a:hover{
+
+    color:var(--olive);
+
+}
+
+.header-button{
+
+    background:var(--olive);
+
+    color:white;
+
+    padding:12px 20px;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    padding:55px 0 90px;
+
+}
+
+.hero-grid{
+
+    display:grid;
+
+    grid-template-columns:42% 58%;
+
+    align-items:center;
+
+    gap:50px;
+
+}
+
+
+/* LEFT */
+
+.hero-content{
+
+    padding-left:20px;
+
+}
+
+.hero-number{
+
+    font-family:var(--serif);
+
+    font-size:18px;
+
+    color:var(--terracotta);
+
+    margin-bottom:25px;
+
+}
+
+.hero h1{
+
+    font-family:var(--serif);
+
+    font-size:clamp(70px,8vw,110px);
+
+    line-height:.78;
+
+    font-weight:500;
+
+    color:var(--olive);
+
+    margin-bottom:35px;
+
+}
+
+.hero-description{
+
+    max-width:420px;
+
+    margin-bottom:35px;
+
+}
+
+.hero-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+.button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:14px 24px;
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.3px;
+
+}
+
+.button-primary{
+
+    background:var(--olive);
+
+    color:white;
+
+}
+
+.button-link{
+
+    color:var(--olive);
+
+    border-bottom:1px solid var(--olive);
+
+    padding-bottom:5px;
+
+}
+
+
+/* HERO IMAGES */
+
+.hero-visual{
+
+    position:relative;
+
+    height:680px;
+
+}
+
+.hero-main-image{
+
+    position:absolute;
+
+    right:0;
+
+    top:0;
+
+    width:78%;
+
+    height:590px;
+
+    overflow:hidden;
+
+}
+
+.hero-main-image img{
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.hero-small-image{
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:42%;
+
+    height:270px;
+
+    border:12px solid var(--cream);
+
+    overflow:hidden;
+
+}
+
+.hero-small-image img{
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.hero-location{
+
+    position:absolute;
+
+    right:20px;
+
+    bottom:35px;
+
+    background:white;
+
+    padding:15px 20px;
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+}
+
+
+/* =====================================================
+   QUICK DATA
+===================================================== */
+
+.quick-data{
+
+    margin-top:20px;
+
+}
+
+.quick-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:1px;
+
+    background:var(--line);
+
+}
+
+.quick-item{
+
+    background:white;
+
+    padding:28px 25px;
+
+}
+
+.quick-number{
+
+    font-family:var(--serif);
+
+    color:var(--terracotta);
+
+    font-size:35px;
+
+    line-height:1;
+
+    margin-bottom:7px;
+
+}
+
+.quick-item strong{
+
+    display:block;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.quick-item span{
+
+    color:var(--gray);
+
+    font-size:10px;
+
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro{
+
+    background:white;
+
+}
+
+.intro-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:100px;
+
+    align-items:center;
+
+}
+
+.intro-image{
+
+    position:relative;
+
+}
+
+.intro-image img{
+
+    height:600px;
+
+    object-fit:cover;
+
+}
+
+.intro-caption{
+
+    position:absolute;
+
+    right:-35px;
+
+    bottom:35px;
+
+    background:var(--terracotta);
+
+    color:white;
+
+    width:100px;
+
+    height:100px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    font-family:var(--serif);
+
+    font-size:21px;
+
+    line-height:1;
+
+}
+
+.intro-content{
+
+    max-width:480px;
+
+}
+
+.intro-content .title{
+
+    color:var(--olive);
+
+    margin-bottom:30px;
+
+}
+
+.intro-content .description{
+
+    margin-bottom:35px;
+
+}
+
+.intro-points{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+
+}
+
+.intro-point{
+
+    border-top:1px solid var(--line);
+
+    padding-top:15px;
+
+}
+
+.intro-point strong{
+
+    display:block;
+
+    font-size:12px;
+
+    margin-bottom:4px;
+
+}
+
+.intro-point span{
+
+    color:var(--gray);
+
+    font-size:10px;
+
+}
+
+
+/* =====================================================
+   APARTMENTS
+===================================================== */
+
+.apartments{
+
+    background:var(--sand);
+
+}
+
+.section-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    margin-bottom:50px;
+
+}
+
+.section-header .description{
+
+    max-width:370px;
+
+}
+
+
+/* CARDS */
+
+.apartment-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+.apartment-card{
+
+    background:var(--cream);
+
+}
+
+.apartment-image{
+
+    height:300px;
+
+    overflow:hidden;
+
+}
+
+.apartment-image img{
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+.apartment-card:hover img{
+
+    transform:scale(1.05);
+
+}
+
+.apartment-content{
+
+    padding:27px;
+
+}
+
+.apartment-index{
+
+    color:var(--terracotta);
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    margin-bottom:10px;
+
+}
+
+.apartment-title{
+
+    font-family:var(--serif);
+
+    color:var(--olive);
+
+    font-size:34px;
+
+    font-weight:500;
+
+    margin-bottom:20px;
+
+}
+
+.apartment-meta{
+
+    display:flex;
+
+    gap:25px;
+
+    padding-top:15px;
+
+    border-top:1px solid var(--line);
+
+}
+
+.meta strong{
+
+    display:block;
+
+    font-size:12px;
+
+}
+
+.meta span{
+
+    color:var(--gray);
+
+    font-size:9px;
+
+}
+
+
+/* =====================================================
+   WHY
+===================================================== */
+
+.why{
+
+    background:var(--olive);
+
+    color:white;
+
+}
+
+.why-grid{
+
+    display:grid;
+
+    grid-template-columns:40% 60%;
+
+    gap:70px;
+
+}
+
+.why-content .label{
+
+    color:#c5c9bd;
+
+}
+
+.why-content .title{
+
+    margin-bottom:25px;
+
+}
+
+.why-content .description{
+
+    color:#c3c7c0;
+
+}
+
+.why-list{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+}
+
+.why-item{
+
+    padding:30px;
+
+    border-left:1px solid rgba(255,255,255,.15);
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+}
+
+.why-item:nth-child(3),
+.why-item:nth-child(4){
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+
+}
+
+.why-number{
+
+    color:#d09a83;
+
+    font-family:var(--serif);
+
+    font-size:30px;
+
+    margin-bottom:30px;
+
+}
+
+.why-item h3{
+
+    font-family:var(--serif);
+
+    font-size:27px;
+
+    font-weight:400;
+
+    margin-bottom:8px;
+
+}
+
+.why-item p{
+
+    color:#b7bdb5;
+
+    font-size:11px;
+
+    line-height:1.7;
+
+}
+
+
+/* =====================================================
+   AMENITIES
+===================================================== */
+
+.amenities{
+
+    background:white;
+
+}
+
+.amenities-grid{
+
+    display:grid;
+
+    grid-template-columns:45% 55%;
+
+}
+
+.amenities-photo{
+
+    height:650px;
+
+}
+
+.amenities-photo img{
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.amenities-content{
+
+    padding:60px 70px;
+
+    background:var(--cream);
+
+}
+
+.amenities-content .title{
+
+    color:var(--olive);
+
+    margin-bottom:40px;
+
+}
+
+.amenity-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:0;
+
+}
+
+.amenity-card{
+
+    padding:22px 0;
+
+    border-top:1px solid var(--line);
+
+}
+
+.amenity-card:nth-child(odd){
+
+    margin-right:20px;
+
+}
+
+.amenity-card strong{
+
+    display:block;
+
+    font-size:12px;
+
+    margin-bottom:4px;
+
+}
+
+.amenity-card span{
+
+    font-size:10px;
+
+    color:var(--gray);
+
+}
+
+
+/* =====================================================
+   LOCATION
+===================================================== */
+
+.location{
+
+    background:var(--sand);
+
+}
+
+.location-grid{
+
+    display:grid;
+
+    grid-template-columns:55% 45%;
+
+    gap:60px;
+
+    align-items:center;
+
+}
+
+.location-visual{
+
+    position:relative;
+
+    height:560px;
+
+}
+
+.location-image{
+
+    width:80%;
+
+    height:100%;
+
+}
+
+.location-image img{
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.location-card{
+
+    position:absolute;
+
+    right:0;
+
+    bottom:40px;
+
+    width:270px;
+
+    background:white;
+
+    padding:30px;
+
+}
+
+.location-card h3{
+
+    font-family:var(--serif);
+
+    color:var(--olive);
+
+    font-size:28px;
+
+    font-weight:500;
+
+    margin-bottom:20px;
+
+}
+
+.location-list{
+
+    border-top:1px solid var(--line);
+
+}
+
+.location-list div{
+
+    padding:12px 0;
+
+    border-bottom:1px solid var(--line);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:10px;
+
+}
+
+.location-list span{
+
+    color:var(--gray);
+
+}
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.gallery{
+
+    background:white;
+
+}
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:1.4fr .6fr;
+
+    gap:18px;
+
+}
+
+.gallery-main{
+
+    height:650px;
+
+    overflow:hidden;
+
+}
+
+.gallery-main img{
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.gallery-column{
+
+    display:grid;
+
+    grid-template-rows:1fr 1fr;
+
+    gap:18px;
+
+}
+
+.gallery-small{
+
+    overflow:hidden;
+
+}
+
+.gallery-small img{
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+.gallery-small:hover img{
+
+    transform:scale(1.04);
+
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact{
+
+    background:var(--cream);
+
+}
+
+.contact-box{
+
+    background:white;
+
+    padding:70px;
+
+    display:grid;
+
+    grid-template-columns:45% 55%;
+
+    gap:70px;
+
+}
+
+.contact-intro .title{
+
+    color:var(--olive);
+
+    margin-bottom:25px;
+
+}
+
+.contact-form{
+
+    display:grid;
+
+    gap:18px;
+
+}
+
+.form-row{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    font-size:9px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.5px;
+
+    color:var(--gray);
+
+    margin-bottom:8px;
+
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+    width:100%;
+
+    border:0;
+
+    border-bottom:1px solid var(--line);
+
+    background:transparent;
+
+    padding:12px 0;
+
+    outline:none;
+
+    font-size:12px;
+
+}
+
+.form-group textarea{
+
+    min-height:80px;
+
+    resize:none;
+
+}
+
+.submit{
+
+    background:var(--olive);
+
+    color:white;
+
+    border:0;
+
+    padding:16px;
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.5px;
+
+    cursor:pointer;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    background:#202720;
+
+    color:white;
+
+    padding:65px 0 25px;
+
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:1.5fr 1fr 1fr;
+
+    gap:50px;
+
+    padding-bottom:45px;
+
+}
+
+.footer-logo{
+
+    font-size:20px;
+
+    letter-spacing:2px;
+
+    margin-bottom:15px;
+
+}
+
+footer p{
+
+    color:#9ca29b;
+
+    font-size:11px;
+
+    max-width:320px;
+
+}
+
+footer h4{
+
+    font-size:9px;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    margin-bottom:18px;
+
+}
+
+footer a{
+
+    display:block;
+
+    color:#9ca29b;
+
+    font-size:11px;
+
+    margin-bottom:8px;
+
+}
+
+.footer-bottom{
+
+    border-top:1px solid rgba(255,255,255,.1);
+
+    padding-top:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#737a72;
+
+    font-size:9px;
+
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+.whatsapp{
+
+    position:fixed;
+
+    right:24px;
+
+    bottom:24px;
+
+    width:54px;
+
+    height:54px;
+
+    border-radius:50%;
+
+    background:var(--terracotta);
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    z-index:100;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:950px){
+
+    nav{
+        display:none;
+    }
+
+    .hero-grid,
+    .intro-grid,
+    .why-grid,
+    .amenities-grid,
+    .location-grid,
+    .contact-box{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .hero-visual{
+
+        height:550px;
+
+    }
+
+    .quick-grid{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .apartment-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .why-content{
+
+        margin-bottom:30px;
+
+    }
+
+    .amenities-photo{
+
+        height:450px;
+
+    }
+
+    .location-grid{
+
+        gap:30px;
+
+    }
+
+    .contact-box{
+
+        padding:50px 35px;
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .section{
+
+        padding:75px 0;
+
+    }
+
+    .header-button{
+
+        display:none;
+
+    }
+
+    .hero{
+
+        padding-top:25px;
+
+    }
+
+    .hero-content{
+
+        padding-left:0;
+
+    }
+
+    .hero h1{
+
+        font-size:70px;
+
+    }
+
+    .hero-visual{
+
+        height:450px;
+
+    }
+
+    .hero-main-image{
+
+        width:82%;
+
+        height:390px;
+
+    }
+
+    .hero-small-image{
+
+        width:45%;
+
+        height:190px;
+
+    }
+
+    .quick-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .intro-image{
+
+        height:430px;
+
+    }
+
+    .intro-points{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .section-header{
+
+        display:block;
+
+    }
+
+    .section-header .description{
+
+        margin-top:20px;
+
+    }
+
+    .why-list{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .why-item:nth-child(3){
+
+        border-bottom:0;
+
+    }
+
+    .amenities-content{
+
+        padding:50px 30px;
+
+    }
+
+    .amenity-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .amenity-card:nth-child(odd){
+
+        margin-right:0;
+
+    }
+
+    .location-visual{
+
+        height:470px;
+
+    }
+
+    .location-card{
+
+        width:220px;
+
+        padding:22px;
+
+    }
+
+    .gallery-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .gallery-main{
+
+        height:400px;
+
+    }
+
+    .gallery-column{
+
+        height:400px;
+
+    }
+
+    .contact-box{
+
+        padding:40px 25px;
+
+    }
+
+    .form-row{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .footer-bottom{
+
+        display:block;
+
+    }
+
+    .footer-bottom span{
+
+        display:block;
+
+        margin-bottom:8px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+HEADER
+===================================================== -->
+
+<header>
+
+<div class="container header-inner">
+
+<a href="#" class="logo">
+
+CONNUVAL
+
+<span>
+CONSTRUCTORA NÚÑEZ VALDÉZ
+</span>
+
+</a>
+
+
+<nav>
+
+<a href="#proyecto">
+Proyecto
+</a>
+
+<a href="#apartamentos">
+Apartamentos
+</a>
+
+<a href="#amenidades">
+Amenidades
+</a>
+
+<a href="#ubicacion">
+Ubicación
+</a>
+
+<a href="#galeria">
+Galería
+</a>
+
+</nav>
+
+
+<a
+href="https://api.whatsapp.com/send?phone=18096277229&text=Hola%2C%20estoy%20interesado%20en%20Quintas%20Towers."
+target="_blank"
+class="header-button"
+>
+Solicitar información
+</a>
+
+</div>
+
+</header>
+
+
+
+<!-- =====================================================
+HERO
+===================================================== -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="hero-grid">
+
+
+<div class="hero-content">
+
+<div class="hero-number">
+01 / 05
+</div>
+
+<div class="label">
+Proyecto residencial
+</div>
+
+<h1>
+Quintas<br>
+Towers
+</h1>
+
+<p class="description hero-description">
+
+Tres torres residenciales de nueve niveles
+en Madre Vieja Sur, San Cristóbal.
+
+Apartamentos de 1, 2 y 3 habitaciones
+pensados para vivir con comodidad,
+modernidad y proyección.
+
+</p>
+
+
+<div class="hero-actions">
+
+<a
+href="#apartamentos"
+class="button button-primary"
+>
+Ver apartamentos
+</a>
+
+<a
+href="#ubicacion"
+class="button-link"
+>
+Explorar ubicación
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="hero-visual">
+
+
+<div class="hero-main-image">
+
+<img
+src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=90"
+alt="Quintas Towers"
+>
+
+</div>
+
+
+<div class="hero-small-image">
+
+<img
+src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=85"
+alt="Interior residencial"
+>
+
+</div>
+
+
+<div class="hero-location">
+
+Madre Vieja Sur · San Cristóbal
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+QUICK DATA
+===================================================== -->
+
+<section class="quick-data">
+
+<div class="container">
+
+<div class="quick-grid">
+
+
+<div class="quick-item">
+
+<div class="quick-number">
+03
+</div>
+
+<strong>
+Torres
+</strong>
+
+<span>
+Proyecto residencial
+</span>
+
+</div>
+
+
+<div class="quick-item">
+
+<div class="quick-number">
+09
+</div>
+
+<strong>
+Niveles
+</strong>
+
+<span>
+Por torre
+</span>
+
+</div>
+
+
+<div class="quick-item">
+
+<div class="quick-number">
+1 · 2 · 3
+</div>
+
+<strong>
+Habitaciones
+</strong>
+
+<span>
+Tipologías disponibles
+</span>
+
+</div>
+
+
+<div class="quick-item">
+
+<div class="quick-number">
+24/7
+</div>
+
+<strong>
+Planta eléctrica
+</strong>
+
+<span>
+Todo el proyecto
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+INTRO
+===================================================== -->
+
+<section class="section intro" id="proyecto">
+
+<div class="container">
+
+<div class="intro-grid">
+
+
+<div class="intro-image">
+
+<img
+src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=90"
+alt="Apartamento moderno"
+>
+
+<div class="intro-caption">
+Diseñado<br>
+para vivir
+</div>
+
+</div>
+
+
+<div class="intro-content">
+
+<div class="label">
+El proyecto
+</div>
+
+<h2 class="title">
+Un lugar para<br>
+hacerlo tuyo.
+</h2>
+
+<p class="description">
+
+Quintas Towers combina arquitectura contemporánea,
+funcionalidad y confort en una propuesta residencial
+pensada para familias que buscan calidad de vida.
+
+</p>
+
+<div class="intro-points">
+
+
+<div class="intro-point">
+
+<strong>
+Diseño contemporáneo
+</strong>
+
+<span>
+Arquitectura moderna y funcional.
+</span>
+
+</div>
+
+
+<div class="intro-point">
+
+<strong>
+Vida familiar
+</strong>
+
+<span>
+Apartamentos de 1, 2 y 3 habitaciones.
+</span>
+
+</div>
+
+
+<div class="intro-point">
+
+<strong>
+Ubicación estratégica
+</strong>
+
+<span>
+Madre Vieja Sur, San Cristóbal.
+</span>
+
+</div>
+
+
+<div class="intro-point">
+
+<strong>
+Proyección
+</strong>
+
+<span>
+Una zona con potencial de crecimiento.
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+APARTMENTS
+===================================================== -->
+
+<section class="section apartments" id="apartamentos">
+
+<div class="container">
+
+
+<div class="section-header">
+
+<div>
+
+<div class="label">
+Tipologías
+</div>
+
+<h2 class="title">
+Encuentra tu<br>
+espacio.
+</h2>
+
+</div>
+
+<p class="description">
+
+Tres opciones para diferentes formas
+de vivir y diferentes necesidades.
+
+</p>
+
+</div>
+
+
+<div class="apartment-grid">
+
+
+<article class="apartment-card">
+
+<div class="apartment-image">
+
+<img
+src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85"
+alt="Apartamento de 1 habitación"
+>
+
+</div>
+
+<div class="apartment-content">
+
+<div class="apartment-index">
+01 / TIPOLOGÍA
+</div>
+
+<h3 class="apartment-title">
+1 habitación
+</h3>
+
+<div class="apartment-meta">
+
+<div class="meta">
+
+<strong>
+1
+</strong>
+
+<span>
+Habitación
+</span>
+
+</div>
+
+<div class="meta">
+
+<strong>
+Funcional
+</strong>
+
+<span>
+Distribución
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="apartment-card">
+
+<div class="apartment-image">
+
+<img
+src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85"
+alt="Apartamento de 2 habitaciones"
+>
+
+</div>
+
+<div class="apartment-content">
+
+<div class="apartment-index">
+02 / TIPOLOGÍA
+</div>
+
+<h3 class="apartment-title">
+2 habitaciones
+</h3>
+
+<div class="apartment-meta">
+
+<div class="meta">
+
+<strong>
+2
+</strong>
+
+<span>
+Habitaciones
+</span>
+
+</div>
+
+<div class="meta">
+
+<strong>
+Familiar
+</strong>
+
+<span>
+Distribución
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="apartment-card">
+
+<div class="apartment-image">
+
+<img
+src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=85"
+alt="Apartamento de 3 habitaciones"
+>
+
+</div>
+
+<div class="apartment-content">
+
+<div class="apartment-index">
+03 / TIPOLOGÍA
+</div>
+
+<h3 class="apartment-title">
+3 habitaciones
+</h3>
+
+<div class="apartment-meta">
+
+<div class="meta">
+
+<strong>
+3
+</strong>
+
+<span>
+Habitaciones
+</span>
+
+</div>
+
+<div class="meta">
+
+<strong>
+Amplio
+</strong>
+
+<span>
+Distribución
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+WHY
+===================================================== -->
+
+<section class="section why">
+
+<div class="container">
+
+<div class="why-grid">
+
+
+<div class="why-content">
+
+<div class="label">
+¿Por qué Quintas Towers?
+</div>
+
+<h2 class="title">
+Una decisión<br>
+para hoy y mañana.
+</h2>
+
+<p class="description">
+
+Una combinación de ubicación,
+amenidades y diseño que convierte
+el proyecto en una propuesta
+atractiva para vivir o invertir.
+
+</p>
+
+</div>
+
+
+<div class="why-list">
+
+
+<div class="why-item">
+
+<div class="why-number">
+01
+</div>
+
+<h3>
+Ubicación
+</h3>
+
+<p>
+En Madre Vieja Sur, cerca de comercios,
+servicios y principales vías.
+</p>
+
+</div>
+
+
+<div class="why-item">
+
+<div class="why-number">
+02
+</div>
+
+<h3>
+Confort
+</h3>
+
+<p>
+Espacios pensados para facilitar
+la vida cotidiana.
+</p>
+
+</div>
+
+
+<div class="why-item">
+
+<div class="why-number">
+03
+</div>
+
+<h3>
+Amenidades
+</h3>
+
+<p>
+Piscina, gimnasio, salones de eventos,
+terrazas y áreas de juegos.
+</p>
+
+</div>
+
+
+<div class="why-item">
+
+<div class="why-number">
+04
+</div>
+
+<h3>
+Proyección
+</h3>
+
+<p>
+Una zona residencial con potencial
+de crecimiento.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+AMENITIES
+===================================================== -->
+
+<section class="section amenities" id="amenidades">
+
+<div class="container">
+
+<div class="amenities-grid">
+
+
+<div class="amenities-photo">
+
+<img
+src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1200&q=90"
+alt="Piscina residencial"
+>
+
+</div>
+
+
+<div class="amenities-content">
+
+<div class="label">
+Amenidades
+</div>
+
+<h2 class="title">
+Todo lo que<br>
+necesitas.
+</h2>
+
+
+<div class="amenity-grid">
+
+
+<div class="amenity-card">
+
+<strong>
+Lobby a doble altura
+</strong>
+
+<span>
+Un acceso moderno y elegante.
+</span>
+
+</div>
+
+
+<div class="amenity-card">
+
+<strong>
+Gimnasio equipado
+</strong>
+
+<span>
+Espacio para mantenerte activo.
+</span>
+
+</div>
+
+
+<div class="amenity-card">
+
+<strong>
+Piscina
+</strong>
+
+<span>
+Un espacio para relajarte.
+</span>
+
+</div>
+
+
+<div class="amenity-card">
+
+<strong>
+Salones de eventos
+</strong>
+
+<span>
+Espacios para compartir.
+</span>
+
+</div>
+
+
+<div class="amenity-card">
+
+<strong>
+Áreas de juegos
+</strong>
+
+<span>
+Pensadas para toda la familia.
+</span>
+
+</div>
+
+
+<div class="amenity-card">
+
+<strong>
+Terrazas
+</strong>
+
+<span>
+Espacios abiertos para disfrutar.
+</span>
+
+</div>
+
+
+<div class="amenity-card">
+
+<strong>
+Planta eléctrica 24 horas
+</strong>
+
+<span>
+Cobertura para todo el proyecto.
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+LOCATION
+===================================================== -->
+
+<section class="section location" id="ubicacion">
+
+<div class="container">
+
+<div class="location-grid">
+
+
+<div class="location-visual">
+
+<div class="location-image">
+
+<img
+src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=90"
+alt="Zona residencial"
+>
+
+</div>
+
+
+<div class="location-card">
+
+<h3>
+Madre Vieja Sur
+</h3>
+
+<div class="location-list">
+
+<div>
+
+<span>
+Zona
+</span>
+
+Residencial
+
+</div>
+
+
+<div>
+
+<span>
+La Sirena
+</span>
+
+Cerca
+
+</div>
+
+
+<div>
+
+<span>
+Bravo
+</span>
+
+Cerca
+
+</div>
+
+
+<div>
+
+<span>
+Smart Fit
+</span>
+
+Cerca
+
+</div>
+
+
+<div>
+
+<span>
+Santo Domingo
+</span>
+
+20 min.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div>
+
+<div class="label">
+Ubicación
+</div>
+
+<h2 class="title">
+Cerca de todo.<br>
+Lejos del ruido.
+</h2>
+
+<p class="description" style="margin-top:25px;">
+
+Quintas Towers está ubicado en Madre Vieja Sur,
+San Cristóbal, una zona residencial con acceso
+a comercios, servicios y espacios necesarios
+para el día a día.
+
+</p>
+
+<a
+href="https://www.google.com/maps/search/?api=1&query=Madre+Vieja+Sur+San+Cristobal+Republica+Dominicana"
+target="_blank"
+class="button button-primary"
+style="margin-top:30px;"
+>
+Ver en Google Maps
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+GALLERY
+===================================================== -->
+
+<section class="section gallery" id="galeria">
+
+<div class="container">
+
+
+<div class="section-header">
+
+<div>
+
+<div class="label">
+Galería
+</div>
+
+<h2 class="title">
+Imagina vivir aquí.
+</h2>
+
+</div>
+
+<p class="description">
+
+Una mirada al concepto y estilo de vida
+de Quintas Towers.
+
+</p>
+
+</div>
+
+
+<div class="gallery-grid">
+
+
+<div class="gallery-main">
+
+<img
+src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=90"
+alt="Interior moderno"
+>
+
+</div>
+
+
+<div class="gallery-column">
+
+
+<div class="gallery-small">
+
+<img
+src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85"
+alt="Sala"
+>
+
+</div>
+
+
+<div class="gallery-small">
+
+<img
+src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85"
+alt="Apartamento"
+>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+CONTACT
+===================================================== -->
+
+<section class="section contact">
+
+<div class="container">
+
+<div class="contact-box">
+
+
+<div class="contact-intro">
+
+<div class="label">
+Quintas Towers
+</div>
+
+<h2 class="title">
+¿Quieres conocer<br>
+más del proyecto?
+</h2>
+
+<p class="description">
+
+Déjanos tus datos y un asesor de
+CONNUVAL se pondrá en contacto
+contigo.
+
+</p>
+
+</div>
+
+
+<form class="contact-form">
+
+
+<div class="form-row">
+
+<div class="form-group">
+
+<label>
+Nombre
+</label>
+
+<input
+type="text"
+placeholder="Tu nombre"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Teléfono
+</label>
+
+<input
+type="tel"
+placeholder="809 000 0000"
+>
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Correo
+</label>
+
+<input
+type="email"
+placeholder="correo@email.com"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Interés
+</label>
+
+<select>
+
+<option>
+Seleccionar
+</option>
+
+<option>
+1 habitación
+</option>
+
+<option>
+2 habitaciones
+</option>
+
+<option>
+3 habitaciones
+</option>
+
+<option>
+Información general
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Mensaje
+</label>
+
+<textarea
+placeholder="Cuéntanos qué deseas conocer..."
+></textarea>
+
+</div>
+
+
+<button
+type="submit"
+class="submit"
+>
+Solicitar información
+</button>
+
+
+</form>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="container">
+
+
+<div class="footer-grid">
+
+
+<div>
+
+<div class="footer-logo">
+CONNUVAL
+</div>
+
+<p>
+Constructora Núñez Valdéz.
+Construyendo excelencia y generando confianza.
+</p>
+
+</div>
+
+
+<div>
+
+<h4>
+Quintas Towers
+</h4>
+
+<a href="#proyecto">
+Proyecto
+</a>
+
+<a href="#apartamentos">
+Apartamentos
+</a>
+
+<a href="#amenidades">
+Amenidades
+</a>
+
+<a href="#ubicacion">
+Ubicación
+</a>
+
+<a href="#galeria">
+Galería
+</a>
+
+</div>
+
+
+<div>
+
+<h4>
+Contacto
+</h4>
+
+<a href="tel:+18096821443">
+809-682-1443
+</a>
+
+<a href="mailto:info@connuval.com.do">
+info@connuval.com.do
+</a>
+
+<a
+href="https://api.whatsapp.com/send?phone=18096277229"
+target="_blank"
+>
+WhatsApp
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<span>
+© 2026 CONNUVAL
+</span>
+
+<span>
+Quintas Towers · San Cristóbal, República Dominicana
+</span>
+
+</div>
+
+
+</div>
+
+</footer>
+
+
+
+<!-- =====================================================
+WHATSAPP
+===================================================== -->
+
+<a
+href="https://api.whatsapp.com/send?phone=18096277229&text=Hola%2C%20estoy%20interesado%20en%20conocer%20Quintas%20Towers."
+target="_blank"
+class="whatsapp"
+aria-label="WhatsApp"
+>
+WA
+</a>
+
+
+</body>
+</html>

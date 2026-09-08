@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riberas de Comate | Invierte en tierra. Construye tu futuro.</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Paleta Pastel Fresca */
+            --pastel-bg-main: #FAF8F5;       /* Arena suave */
+            --pastel-mint: #E8F3EE;          /* Menta pastel claro */
+            --pastel-mint-dark: #2D5B43;     /* Verde bosque suave para texto */
+            --pastel-blue: #EBF3F6;          /* Azul agua claro */
+            --pastel-peach: #E78F68;         /* Durazno cálido (Accent CTA) */
+            --pastel-peach-hover: #D87A50;
+            --pastel-card-bg: #FFFFFF;
+            --text-main: #2C3531;            /* Texto oscuro suave */
+            --text-muted: #6C757D;
+            
+            --bs-body-font: 'Plus Jakarta Sans', sans-serif;
+            --bs-heading-font: 'Syne', sans-serif;
+        }
+
+        body {
+            font-family: var(--bs-body-font);
+            color: var(--text-main);
+            background-color: var(--pastel-bg-main);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6, .navbar-brand {
+            font-family: var(--bs-heading-font);
+            color: var(--pastel-mint-dark);
+            letter-spacing: -0.01em;
+        }
+
+        /* Botones Pasteles Accesibles */
+        .btn-peach {
+            background-color: var(--pastel-peach);
+            color: #ffffff;
+            font-weight: 700;
+            padding: 0.85rem 2rem;
+            border-radius: 50rem; /* Estilo redondeado/soft */
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(231, 143, 104, 0.25);
+        }
+
+        .btn-peach:hover {
+            background-color: var(--pastel-peach-hover);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(231, 143, 104, 0.35);
+        }
+
+        .btn-mint-outline {
+            border: 2px solid var(--pastel-mint-dark);
+            color: var(--pastel-mint-dark);
+            font-weight: 700;
+            padding: 0.85rem 2rem;
+            border-radius: 50rem;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .btn-mint-outline:hover {
+            background-color: var(--pastel-mint-dark);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 0.85rem 2rem;
+            border-radius: 50rem;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1da851;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section Fresco */
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(232, 243, 238, 0.95) 0%, rgba(235, 243, 246, 0.9) 100%), 
+                        url('images/casa_club_piscina_1.jpg') center/cover no-repeat;
+            padding: 6rem 0;
+            border-bottom-left-radius: 2.5rem;
+            border-bottom-right-radius: 2.5rem;
+        }
+
+        .badge-soft-mint {
+            background-color: #D3E8DD;
+            color: var(--pastel-mint-dark);
+            font-weight: 700;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50rem;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+
+        .badge-soft-peach {
+            background-color: #FDE8DE;
+            color: var(--pastel-peach);
+            font-weight: 700;
+            padding: 0.4rem 1rem;
+            border-radius: 50rem;
+            font-size: 0.8rem;
+        }
+
+        /* Tarjetas con bordes suaves */
+        .card-soft {
+            background: var(--pastel-card-bg);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+
+        .card-soft:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+        }
+
+        .card-soft img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .bg-mint {
+            background-color: var(--pastel-mint);
+        }
+
+        .bg-blue-soft {
+            background-color: var(--pastel-blue);
+        }
+
+        .bg-peach-soft {
+            background-color: #FDF3EE;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 1.25rem;
+            padding: 1.75rem;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+        }
+
+        .icon-bubble {
+            width: 55px;
+            height: 55px;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .accordion-item {
+            border: none;
+            border-radius: 1rem !important;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .accordion-button {
+            background-color: #ffffff;
+            font-weight: 600;
+            color: var(--pastel-mint-dark);
+            padding: 1.25rem;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: var(--pastel-mint);
+            color: var(--pastel-mint-dark);
+            box-shadow: none;
+        }
+
+        .map-placeholder {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #C8D6D0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top py-3 shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4 d-flex align-items-center" href="#">
+                <i class="bi bi-tree-fill text-success me-2"></i> RIBERAS DE COMATE
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
+                    <li class="nav-item"><a class="nav-link text-dark fw-medium" href="#proyecto">El Proyecto</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-medium" href="#amenidades">Amenidades</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-medium" href="#por-que">¿Por qué Invertir?</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-medium" href="#planes">Planes de Pago</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-medium" href="#faq">FAQ</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <a href="#contacto" class="btn btn-peach btn-sm px-4">Agendar Visita</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero-banner">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-7">
+                    <span class="badge-soft-mint mb-3"><i class="bi bi-geo-alt-fill me-1"></i> Bayaguana, República Dominicana</span>
+                    <h1 class="display-3 fw-extrabold mb-3">Invierte en tierra.<br><span style="color: var(--pastel-peach);">Construye tu futuro.</span></h1>
+                    <p class="fs-5 text-muted mb-4">Solares desde 400 m² en Bayaguana, desde <strong>US$100 por m²</strong>, con facilidades de pago y un entorno diseñado para conectar con la naturaleza, disfrutar y hacer crecer tu patrimonio.</p>
+                    
+                    <div class="row g-3 mb-4">
+                        <div class="col-6 col-sm-3">
+                            <div class="p-3 bg-white rounded-4 text-center shadow-sm">
+                                <span class="d-block text-muted small">Precio m²</span>
+                                <strong class="fs-5" style="color: var(--pastel-peach);">US$100</strong>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="p-3 bg-white rounded-4 text-center shadow-sm">
+                                <span class="d-block text-muted small">Tamaño</span>
+                                <strong class="fs-5" style="color: var(--pastel-mint-dark);">Desde 400m²</strong>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="p-3 bg-white rounded-4 text-center shadow-sm">
+                                <span class="d-block text-muted small">Separación</span>
+                                <strong class="fs-5" style="color: var(--pastel-peach);">US$1,000</strong>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="p-3 bg-white rounded-4 text-center shadow-sm">
+                                <span class="d-block text-muted small">Financiamiento</span>
+                                <strong class="fs-5" style="color: var(--pastel-mint-dark);">24 Meses</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-muted mb-0">Riberas de Comate es más que un proyecto de solares. Es la oportunidad de tener un espacio propio donde puedas construir una casa de descanso, desarrollar tu futuro hogar o realizar una inversión inmobiliaria con visión a largo plazo.</p>
+                </div>
+
+                <!-- FORMULARIO HERO -->
+                <div class="col-lg-5" id="contacto">
+                    <div class="bg-white p-4 p-md-5 rounded-4 shadow-lg border-0">
+                        <span class="badge-soft-peach mb-2">SOLICITA INFORMACIÓN</span>
+                        <h3 class="fw-bold h4 mb-2" style="color: var(--pastel-mint-dark);">CONOCE LOS SOLARES DISPONIBLES</h3>
+                        <p class="small text-muted mb-4">Déjanos tus datos y recibe información actualizada sobre precios, disponibilidad y opciones de pago.</p>
+                        
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Nombre y apellido</label>
+                                <input type="text" class="form-control form-control-lg bg-light border-0 fs-6" placeholder="Ej. Juan Pérez" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">WhatsApp / Teléfono</label>
+                                <input type="tel" class="form-control form-control-lg bg-light border-0 fs-6" placeholder="+1 (809) 000-0000" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Correo electrónico</label>
+                                <input type="email" class="form-control form-control-lg bg-light border-0 fs-6" placeholder="juan@ejemplo.com" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label small fw-bold">¿Dónde resides?</label>
+                                <select class="form-select form-select-lg bg-light border-0 fs-6" required>
+                                    <option value="" selected disabled>Selecciona tu ubicación</option>
+                                    <option>República Dominicana</option>
+                                    <option>Estados Unidos</option>
+                                    <option>Canadá</option>
+                                    <option>Europa</option>
+                                    <option>Otro</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-peach w-100 py-3 text-uppercase fw-bold">QUIERO CONOCER LOS SOLARES</button>
+                            <span class="d-block text-center small text-muted mt-3">Uno de nuestros asesores te contactará para ayudarte a encontrar la opción ideal.</span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- GALERÍA DE AMENIDADES / RENDERS -->
+    <section class="py-5" id="amenidades">
+        <div class="container py-4">
+            <div class="text-center max-w-700 mx-auto mb-5">
+                <span class="badge-soft-mint mb-2">DISEÑO ARQUITECTÓNICO Y NATURAL</span>
+                <h2 class="display-6 fw-bold">AMENIDADES PARA DISFRUTAR MUCHO MÁS QUE TU SOLAR</h2>
+                <p class="text-muted">Tu experiencia en Riberas de Comate no termina en los límites de tu propiedad. El proyecto contempla espacios arquitectónicos modernos destinados al descanso, entretenimiento y convivencia en un entorno natural.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-soft h-100">
+                        <img src="images/casa_club_entrada.jpg" alt="Entrada Casa Club Riberas de Comate">
+                        <div class="card-body p-4">
+                            <span class="badge-soft-mint mb-2">ARQUITECTURA MODERNA</span>
+                            <h3 class="h5 fw-bold mt-1">Casa Club & Pórtico</h3>
+                            <p class="text-muted small mb-0">Un espacio social moderno con pórtico en madera, pérgolas y vegetación pensados para encuentros especiales.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-soft h-100">
+                        <img src="images/casa_club_piscina_2.jpg" alt="Piscina y Jacuzzi Riberas de Comate">
+                        <div class="card-body p-4">
+                            <span class="badge-soft-peach mb-2">RECREACIÓN</span>
+                            <h3 class="h5 fw-bold mt-1">Piscina & Solárium</h3>
+                            <p class="text-muted small mb-0">Área de piscina integrando acabados en coralina, jacuzzi integrado y zona de asoleadero con camastros.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-soft h-100">
+                        <img src="images/casa_club_interior_1.jpg" alt="Interior Lounge Casa Club">
+                        <div class="card-body p-4">
+                            <span class="badge-soft-mint mb-2">ESPACIOS ABIERTOS</span>
+                            <h3 class="h5 fw-bold mt-1">Lounge y Bar Social</h3>
+                            <p class="text-muted small mb-0">Diseño semi-abierto con iluminación cálida, mobiliario confortable y barra de atención para residentes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-soft h-100">
+                        <img src="images/casa_club_terraza.jpg" alt="Terraza Exterior">
+                        <div class="card-body p-4">
+                            <span class="badge-soft-peach mb-2">ENTORNO VERDE</span>
+                            <h3 class="h5 fw-bold mt-1">Áreas Naturales & Lago</h3>
+                            <p class="text-muted small mb-0">Espacios concebidos para disfrutar al aire libre, caminar y desconectarte junto al lago del proyecto.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-8">
+                    <div class="card card-soft h-100">
+                        <img src="images/parque_infantil.jpg" alt="Parque Infantil Riberas de Comate">
+                        <div class="card-body p-4">
+                            <span class="badge-soft-mint mb-2">PARA LA FAMILIA</span>
+                            <h3 class="h5 fw-bold mt-1">Áreas de Juegos Infantiles</h3>
+                            <p class="text-muted small mb-0">Espacios equipados con juegos para niños rodeados de sombra natural, árboles maduros y senderos seguros.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION OPORTUNIDADES -->
+    <section class="py-5 bg-mint" id="proyecto">
+        <div class="container py-4">
+            <div class="row align-items-center gy-4">
+                <div class="col-lg-6">
+                    <span class="badge-soft-peach mb-3">DISPONIBILIDAD</span>
+                    <h2 class="display-5 fw-bold mb-3">604 OPORTUNIDADES PARA CONSTRUIR ALGO TUYO</h2>
+                    <p class="lead text-muted mb-4">
+                        Actualmente, Riberas de Comate cuenta con <strong>604 solares disponibles</strong>, ofreciéndote diferentes alternativas para elegir el espacio que mejor se adapte a tu proyecto y presupuesto.
+                    </p>
+                    <p class="mb-4 text-muted">
+                        Ya sea que estés buscando invertir, construir una villa de descanso o comenzar a crear patrimonio, aquí tienes espacio para hacerlo realidad.
+                    </p>
+                    <div class="p-3 bg-white rounded-4 border-start border-4 border-success mb-4 shadow-sm">
+                        <p class="mb-0 fw-semibold" style="color: var(--pastel-mint-dark);">"Tu terreno puede ser el comienzo de algo mucho más grande."</p>
+                    </div>
+                    <a href="#contacto" class="btn btn-peach">VER DISPONIBILIDAD</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="images/casa_club_fachada.jpg" alt="Fachada Riberas de Comate" class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POSIBILIDADES -->
+    <section class="py-5 bg-blue-soft">
+        <div class="container py-4">
+            <div class="row align-items-center gy-4">
+                <div class="col-lg-6">
+                    <h2 class="display-6 fw-bold mb-3">NO ESTÁS COMPRANDO SOLO METROS CUADRADOS</h2>
+                    <p class="fs-5 fw-bold mb-4" style="color: var(--pastel-peach);">Estás comprando posibilidades:</p>
+                    <div class="d-flex flex-column gap-3 mb-4">
+                        <div class="d-flex align-items-center gap-3 bg-white p-3 rounded-3 shadow-sm">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                            <div><strong>La posibilidad de construir:</strong> Desarrolla la villa de tus sueños.</div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 bg-white p-3 rounded-3 shadow-sm">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                            <div><strong>La posibilidad de invertir:</strong> Un activo de alta plusvalía a futuro.</div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 bg-white p-3 rounded-3 shadow-sm">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                            <div><strong>Escapar de la rutina:</strong> Un refugio natural a minutos de la ciudad.</div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 bg-white p-3 rounded-3 shadow-sm">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                            <div><strong>Crear recuerdos en familia:</strong> Espacios de esparcimiento único.</div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 bg-white p-3 rounded-3 shadow-sm">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                            <div><strong>Consolidar tu patrimonio:</strong> Propiedad raíz segura y tangible.</div>
+                        </div>
+                    </div>
+                    <p class="text-muted">Riberas de Comate nace para quienes entienden que comprar tierra es pensar más allá del presente.</p>
+                    <a href="#contacto" class="btn btn-peach mt-2">QUIERO INVERTIR EN RIBERAS DE COMATE</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="images/casa_club_interior_2.jpg" alt="Interiorismo Casa Club" class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POR QUÉ INVERTIR -->
+    <section class="py-5" id="por-que">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="badge-soft-mint mb-2">BENEFICIOS</span>
+                <h2 class="display-6 fw-bold">¿POR QUÉ INVERTIR EN RIBERAS DE COMATE?</h2>
+                <p class="text-muted">Un proyecto pensado estratégicamente para tu tranquilidad y retorno</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card h-100">
+                        <div class="icon-bubble bg-mint text-success"><i class="bi bi-tree"></i></div>
+                        <h3 class="h5 fw-bold">Entorno natural</h3>
+                        <p class="text-muted small mb-0">Disfruta de tranquilidad, aire puro y espacios concebidos para alejarte del ritmo acelerado de la ciudad.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card h-100">
+                        <div class="icon-bubble bg-blue-soft text-primary"><i class="bi bi-bounding-box-circles"></i></div>
+                        <h3 class="h5 fw-bold">Solares desde 400 m²</h3>
+                        <p class="text-muted small mb-0">El espacio necesario para desarrollar una propiedad totalmente adaptada a tu estilo de vida.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card h-100">
+                        <div class="icon-bubble bg-peach-soft" style="color: var(--pastel-peach);"><i class="bi bi-cash-stack"></i></div>
+                        <h3 class="h5 fw-bold">Desde US$100 por m²</h3>
+                        <p class="text-muted small mb-0">Una oportunidad inmobiliaria competitiva que te permite comenzar a construir patrimonio desde hoy.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card h-100">
+                        <div class="icon-bubble bg-peach-soft" style="color: var(--pastel-peach);"><i class="bi bi-credit-card-2-front"></i></div>
+                        <h3 class="h5 fw-bold">Separación desde US$1,000</h3>
+                        <p class="text-muted small mb-0">Da el primer paso hacia tu propiedad sin necesidad de realizar una gran inversión inicial.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card h-100">
+                        <div class="icon-bubble bg-mint text-success"><i class="bi bi-graph-up-arrow"></i></div>
+                        <h3 class="h5 fw-bold">Inversión tangible</h3>
+                        <p class="text-muted small mb-0">Adquirir tierra te permite incorporar un activo inmobiliario a tu patrimonio y desarrollarlo a tu ritmo.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card h-100">
+                        <div class="icon-bubble bg-blue-soft text-primary"><i class="bi bi-heart"></i></div>
+                        <h3 class="h5 fw-bold">Un lugar para compartir</h3>
+                        <p class="text-muted small mb-0">Crea un espacio pensado para descansar, disfrutar y construir nuevas historias en familia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UN PROYECTO QUE SIGUE CRECIENDO -->
+    <section class="py-5 bg-mint">
+        <div class="container py-4 text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <span class="badge-soft-peach mb-3">URBANIZACIÓN EN PROCESO</span>
+                    <h2 class="display-6 fw-bold mb-3">UN PROYECTO QUE SIGUE CRECIENDO</h2>
+                    <p class="lead text-muted mb-4">
+                        Riberas de Comate se encuentra actualmente en proceso de urbanización, avanzando hacia la creación de una comunidad donde naturaleza, tranquilidad y desarrollo se unen.
+                    </p>
+                    <p class="fs-5 fw-bold mb-4" style="color: var(--pastel-mint-dark);">
+                        Hoy eliges el terreno. Mañana decides todo lo que quieres construir sobre él.
+                    </p>
+                    <a href="#contacto" class="btn btn-peach">CONOCER EL PROYECTO</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLANES DE PAGO -->
+    <section class="py-5" id="planes">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="badge-soft-mint mb-2">FACILIDADES</span>
+                <h2 class="display-6 fw-bold">DOS FORMAS DE COMENZAR TU INVERSIÓN</h2>
+                <p class="text-muted">Riberas de Comate ofrece diferentes alternativas para facilitar la adquisición de tu solar.</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- PLAN 1 -->
+                <div class="col-md-6 col-lg-5">
+                    <div class="p-4 bg-white rounded-4 border-0 shadow-sm h-100 d-flex flex-column">
+                        <span class="badge-soft-mint align-self-start mb-3">OPCIÓN TRADICIONAL</span>
+                        <h3 class="h3 fw-bold mb-3">PLAN DE PAGO 1</h3>
+                        
+                        <ul class="list-unstyled mb-4">
+                            <li class="py-2 border-bottom"><strong>US$1,000</strong> de reserva</li>
+                            <li class="py-2 border-bottom"><strong>50%</strong> durante 24 meses <br><small class="text-muted">Pagos lineales distribuidos durante 24 meses.</small></li>
+                            <li class="py-2"><strong>50%</strong> contra entrega <br><small class="text-muted">Pago final contra entrega o financiado.</small></li>
+                        </ul>
+                        
+                        <div class="mt-auto">
+                            <a href="#contacto" class="btn btn-mint-outline w-100">SOLICITAR COTIZACIÓN</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PLAN 2 -->
+                <div class="col-md-6 col-lg-5">
+                    <div class="p-4 bg-white rounded-4 border border-2 border-warning shadow-sm h-100 d-flex flex-column position-relative">
+                        <span class="position-absolute top-0 end-0 bg-warning text-dark fw-bold px-3 py-1 rounded-bl small" style="border-bottom-left-radius: 1rem; border-top-right-radius: 1rem;">MÁS SOLICITADO</span>
+                        <span class="badge-soft-peach align-self-start mb-3">OPCIÓN FLEXIBLE</span>
+                        <h3 class="h3 fw-bold mb-3">PLAN DE PAGO 2</h3>
+                        
+                        <ul class="list-unstyled mb-4">
+                            <li class="py-2 border-bottom"><strong>US$1,000</strong> de reserva</li>
+                            <li class="py-2 border-bottom"><strong>10%</strong> para firma de contrato</li>
+                            <li class="py-2 border-bottom"><strong>40%</strong> durante 24 meses <br><small class="text-muted">Pagos distribuidos durante los siguientes 24 meses.</small></li>
+                            <li class="py-2"><strong>50%</strong> contra entrega <br><small class="text-muted">Pago final contra entrega o financiado.</small></li>
+                        </ul>
+                        
+                        <div class="mt-auto">
+                            <a href="#contacto" class="btn btn-peach w-100">QUIERO ESTE PLAN DE PAGO</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="small text-muted text-center mt-4">* Los precios, condiciones, disponibilidad y opciones de financiamiento están sujetos a actualización.</p>
+        </div>
+    </section>
+
+    <!-- COTIZADOR PRECIO ESTIMADO -->
+    <section class="py-5 bg-blue-soft text-center">
+        <div class="container py-4">
+            <h2 class="display-6 fw-bold mb-3">¿CUÁNTO PUEDE COSTAR TU SOLAR?</h2>
+            <p class="lead text-muted mb-4">Con solares desde 400 m² y un precio desde US$100 por m², puedes encontrar propiedades desde aproximadamente:</p>
+            <div class="display-3 fw-extrabold mb-2" style="color: var(--pastel-peach);">US$40,000</div>
+            <p class="text-muted mb-4">dependiendo del metraje, ubicación y disponibilidad del solar seleccionado.<br><strong>Y puedes comenzar el proceso con una separación de US$1,000.</strong></p>
+            <a href="#contacto" class="btn btn-peach px-5 py-3">QUIERO RECIBIR UNA COTIZACIÓN</a>
+        </div>
+    </section>
+
+    <!-- OBJETIVOS DE INVERSIÓN -->
+    <section class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="display-6 fw-bold">UNA INVERSIÓN QUE SE ADAPTA A DIVERSOS OBJETIVOS</h2>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                        <h4 class="h5 fw-bold"><i class="bi bi-house-heart text-success me-2"></i>Para tu futura casa</h4>
+                        <p class="text-muted small mb-0">Encuentra el espacio para crear una propiedad completamente adaptada a tu estilo.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                        <h4 class="h5 fw-bold"><i class="bi bi-sun text-warning me-2"></i>Casa de descanso</h4>
+                        <p class="text-muted small mb-0">Crea ese lugar al que quieras regresar cuando necesites alejarte de la rutina.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                        <h4 class="h5 fw-bold"><i class="bi bi-graph-up-arrow text-info me-2"></i>Inversión inmobiliaria</h4>
+                        <p class="text-muted small mb-0">Incorpora un terreno a tu patrimonio y evalúa sus posibilidades de desarrollo a largo plazo.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                        <h4 class="h5 fw-bold"><i class="bi bi-globe-americas text-primary me-2"></i>Para dominicanos en el exterior</h4>
+                        <p class="text-muted small mb-0">Mantén una inversión inmobiliaria en República Dominicana y construye un espacio al cual puedas regresar.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                        <h4 class="h5 fw-bold"><i class="bi bi-people text-danger me-2"></i>Para tu familia</h4>
+                        <p class="text-muted small mb-0">Adquiere hoy un terreno que mañana pueda convertirse en parte del patrimonio familiar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAYAGUANA & MAPA -->
+    <section class="py-5 bg-mint">
+        <div class="container py-4">
+            <div class="row align-items-center gy-4">
+                <div class="col-lg-6">
+                    <span class="badge-soft-mint mb-2">UBICACIÓN</span>
+                    <h2 class="display-6 fw-bold mb-3">BAYAGUANA: NATURALEZA, TRANQUILIDAD Y ESPACIO</h2>
+                    <p class="lead text-muted mb-4">Riberas de Comate está ubicado en Bayaguana, República Dominicana, en un entorno que permite disfrutar de una experiencia diferente a la vida urbana.</p>
+                    
+                    <div class="d-flex flex-column gap-2 mb-4">
+                        <div class="d-flex align-items-center gap-2"><i class="bi bi-check2-circle text-success fs-5"></i> Más espacio para desarrollar tus ideas.</div>
+                        <div class="d-flex align-items-center gap-2"><i class="bi bi-check2-circle text-success fs-5"></i> Entorno rodeado de pura naturaleza.</div>
+                        <div class="d-flex align-items-center gap-2"><i class="bi bi-check2-circle text-success fs-5"></i> Tranquilidad garantizada para tu familia.</div>
+                        <div class="d-flex align-items-center gap-2"><i class="bi bi-check2-circle text-success fs-5"></i> Nuevas posibilidades para construir patrimonio.</div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="map-placeholder text-center p-4">
+                        <div>
+                            <i class="bi bi-pin-map-fill text-success fs-1 mb-2"></i>
+                            <p class="fw-bold mb-1">[AGREGAR MAPA Y TIEMPOS CONFIRMADOS DESDE SANTO DOMINGO Y PUNTOS DE REFERENCIA]</p>
+                            <span class="small text-muted">Ubicación exacta Bayaguana, R.D.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGENDAR VISITA CTA -->
+    <section class="py-5">
+        <div class="container py-4">
+            <div class="bg-blue-soft rounded-4 p-4 p-md-5">
+                <div class="row align-items-center gy-4">
+                    <div class="col-lg-7">
+                        <span class="badge-soft-mint mb-3">VISITA GUIADA</span>
+                        <h2 class="display-6 fw-bold mb-2">¿QUIERES CONOCERLO EN PERSONA?</h2>
+                        <h3 class="h4 mb-3" style="color: var(--pastel-peach);">Agenda una visita a Riberas de Comate</h3>
+                        <p class="text-muted mb-4">Una fotografía puede mostrarte el proyecto. Pero visitarlo te permite entender realmente todo lo que puedes hacer aquí. Nuestro equipo puede acompañarte para conocer el desarrollo, revisar las opciones disponibles y ayudarte a identificar el solar más conveniente para ti.</p>
+                        
+                        <p class="fw-bold mb-2">Durante tu visita podrás conocer:</p>
+                        <div class="row g-2 mb-4 small text-muted">
+                            <div class="col-6"><i class="bi bi-check-circle-fill text-success me-1"></i> El proyecto en desarrollo</div>
+                            <div class="col-6"><i class="bi bi-check-circle-fill text-success me-1"></i> Precios por m²</div>
+                            <div class="col-6"><i class="bi bi-check-circle-fill text-success me-1"></i> Solares disponibles</div>
+                            <div class="col-6"><i class="bi bi-check-circle-fill text-success me-1"></i> Amenidades y Casa Club</div>
+                            <div class="col-6"><i class="bi bi-check-circle-fill text-success me-1"></i> Diferentes ubicaciones</div>
+                            <div class="col-6"><i class="bi bi-check-circle-fill text-success me-1"></i> Avances de urbanización</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 text-center text-lg-end">
+                        <div class="d-grid gap-3">
+                            <a href="#contacto" class="btn btn-peach btn-lg py-3">AGENDAR MI VISITA</a>
+                            <a href="https://wa.me/18098169300" target="_blank" class="btn btn-whatsapp btn-lg"><i class="bi bi-whatsapp me-2"></i>HABLAR CON UN ASESOR</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-5" id="faq">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="badge-soft-mint mb-2">RESPUESTAS RÁPIDAS</span>
+                <h2 class="display-6 fw-bold">PREGUNTAS FRECUENTES</h2>
+                <p class="text-muted">Aclara tus dudas sobre el proyecto Riberas de Comate</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion accordion-flush" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f1">¿Desde qué tamaño están disponibles los solares?</button>
+                            </h2>
+                            <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Los solares de Riberas de Comate están disponibles desde 400 m².</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f2">¿Cuál es el precio por metro cuadrado?</button>
+                            </h2>
+                            <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Actualmente los solares están disponibles desde US$100 por m², sujeto a ubicación, metraje y disponibilidad.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f3">¿Cuál es el precio aproximado del solar más económico?</button>
+                            </h2>
+                            <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Tomando como referencia un solar de 400 m² desde US$100/m², una propiedad puede comenzar aproximadamente desde US$40,000.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f4">¿Con cuánto puedo separar?</button>
+                            </h2>
+                            <div id="f4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Puedes comenzar el proceso con una reserva de US$1,000.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f5">¿Existen planes de pago?</button>
+                            </h2>
+                            <div id="f5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Sí. Riberas de Comate cuenta con diferentes esquemas de pago que permiten distribuir parte del valor de la propiedad durante 24 meses.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f6">¿Cuántos solares hay disponibles?</button>
+                            </h2>
+                            <div id="f6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Actualmente el proyecto cuenta con aproximadamente 604 solares disponibles.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f7">¿Dónde está ubicado?</button>
+                            </h2>
+                            <div id="f7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Riberas de Comate está ubicado en Bayaguana, República Dominicana.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f8">¿En qué etapa está el proyecto?</button>
+                            </h2>
+                            <div id="f8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Actualmente se encuentra en proceso de urbanización.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f9">¿Qué amenidades tendrá?</button>
+                            </h2>
+                            <div id="f9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Entre las amenidades contempladas se encuentran casa club, piscina, lago y espacios naturales.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f10">¿Puedo comprar si vivo fuera de República Dominicana?</button>
+                            </h2>
+                            <div id="f10" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Sí. Nuestro equipo comercial puede orientarte sobre el proceso, documentación, disponibilidad y alternativas de pago.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DETALLADO COMPLETO -->
+    <section class="py-5 bg-mint">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border-0">
+                        <div class="text-center mb-4">
+                            <span class="badge-soft-peach mb-2">ASESORÍA PERSONALIZADA</span>
+                            <h2 class="h3 fw-bold">ENCUENTRA EL SOLAR QUE MEJOR SE ADAPTE A TI</h2>
+                            <p class="text-muted small">Cuéntanos qué estás buscando y nuestro equipo podrá mostrarte las opciones disponibles según tu presupuesto y objetivos.</p>
+                        </div>
+
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Nombre y apellido</label>
+                                    <input type="text" class="form-control bg-light border-0" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">WhatsApp / Teléfono</label>
+                                    <input type="tel" class="form-control bg-light border-0" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Correo electrónico</label>
+                                    <input type="email" class="form-control bg-light border-0" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">¿Dónde resides?</label>
+                                    <select class="form-select bg-light border-0" required>
+                                        <option value="" selected disabled>Selecciona ubicación</option>
+                                        <option>República Dominicana</option>
+                                        <option>Estados Unidos</option>
+                                        <option>Canadá</option>
+                                        <option>Europa</option>
+                                        <option>Otro</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">¿Cuál es tu objetivo principal?</label>
+                                    <select class="form-select bg-light border-0" required>
+                                        <option value="" selected disabled>Selecciona objetivo</option>
+                                        <option>Quiero invertir</option>
+                                        <option>Quiero construir una vivienda</option>
+                                        <option>Quiero una casa de descanso</option>
+                                        <option>Quiero comprar para el futuro</option>
+                                        <option>Todavía estoy evaluando</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Presupuesto aproximado</label>
+                                    <select class="form-select bg-light border-0" required>
+                                        <option value="" selected disabled>Selecciona rango</option>
+                                        <option>US$40,000 – US$50,000</option>
+                                        <option>US$50,000 – US$75,000</option>
+                                        <option>US$75,000 – US$100,000</option>
+                                        <option>Más de US$100,000</option>
+                                        <option>Prefiero hablar con un asesor</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-peach w-100 py-3 text-uppercase fw-bold">RECIBIR SOLARES DISPONIBLES</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA HERO -->
+    <section class="py-5 text-center" style="background-color: var(--pastel-mint-dark); color: #ffffff;">
+        <div class="container py-4">
+            <h2 class="display-5 fw-bold mb-3 text-white">TU PRÓXIMA INVERSIÓN PUEDE COMENZAR CON US$1,000</h2>
+            <p class="fs-5 text-white-50 mb-4">
+                No tienes que construirlo todo hoy.<br>
+                Primero eliges el terreno. Luego construyes el proyecto. Después llegan las historias.<br>
+                <strong>Empieza por hacer tuyo el espacio.</strong>
+            </p>
+
+            <div class="d-flex justify-content-center gap-2 flex-wrap mb-4">
+                <span class="badge bg-white text-dark px-3 py-2 rounded-pill">Solares desde 400 m²</span>
+                <span class="badge bg-white text-dark px-3 py-2 rounded-pill">Desde US$100/m²</span>
+                <span class="badge bg-white text-dark px-3 py-2 rounded-pill">Reserva desde US$1,000</span>
+            </div>
+
+            <div class="mb-4">
+                <a href="tel:8098169300" class="fs-2 fw-bold text-decoration-none" style="color: var(--pastel-peach);">
+                    <i class="bi bi-telephone-fill me-2"></i> 809-816-9300
+                </a>
+            </div>
+
+            <a href="#contacto" class="btn btn-peach btn-lg px-5 py-3">QUIERO MI SOLAR EN RIBERAS DE COMATE</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-4 bg-white text-muted text-center border-top">
+        <div class="container">
+            <h4 class="fw-bold mb-1" style="color: var(--pastel-mint-dark);">CONNUVAL</h4>
+            <p class="small mb-0">Construimos espacios. Creamos oportunidades.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
