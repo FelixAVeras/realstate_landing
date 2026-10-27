@@ -129,47 +129,147 @@ a{
 
 /* =====================================================
    HEADER
-===================================================== */
+===================================================== */ 
 
-header{
 
-    padding:25px 0;
 
-    background:var(--cream);
-
+/* ENCABEZADO */
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    min-height: 150px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
-.header-inner{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
+/* LOGO GRANDE */
+.header-inner .logo {
+    display: flex;
+    align-items: center;
+    flex: 0 0 350px;
+    width: 350px;
+    text-decoration: none;
 }
 
-.logo{
-
-    color:var(--olive);
-
-    font-weight:700;
-
-    font-size:19px;
-
-    letter-spacing:2px;
+.header-inner .logo img {
+    display: block;
+    width: 100%;
+    height: 145px;
+    object-fit: contain;
+    object-position: left center;
 }
 
-.logo span{
+/* MENÚ DE NAVEGACIÓN */
+.header-inner nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex: 1;
+    white-space: nowrap;
+}
 
-    display:block;
+.header-inner nav a {
+    color: #18252c;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
-    font-size:7px;
+.header-inner nav a:hover {
+    color: #426d50;
+}
 
-    letter-spacing:2px;
+/* BOTÓN DE WHATSAPP */
+.header-inner .header-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 18px 25px;
+    background: var(--olive);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    /* border-radius: 5px; */
+    transition: background 0.3s ease;
+}
 
-    font-weight:500;
+.header-inner .header-button:hover {
+    background: #12392f;
+}
 
+/* TABLET */
+@media (max-width: 1100px) {
+    .header-inner {
+        gap: 20px;
+    }
+
+    .header-inner .logo {
+        flex-basis: 250px;
+        width: 250px;
+    }
+
+    .header-inner .logo img {
+        height: 115px;
+    }
+
+    .header-inner nav {
+        gap: 16px;
+    }
+
+    .header-inner nav a {
+        font-size: 14px;
+    }
+
+    .header-inner .header-button {
+        padding: 14px 16px;
+        font-size: 13px;
+    }
+}
+
+/* MÓVIL */
+@media (max-width: 768px) {
+    .header-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .header-inner .logo {
+        flex: 0 1 220px;
+        width: 220px;
+        justify-content: center;
+    }
+
+    .header-inner .logo img {
+        width: 100%;
+        height: 100px;
+        object-position: center;
+    }
+
+    .header-inner nav {
+        flex: 1 1 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px 20px;
+        white-space: normal;
+    }
+
+    .header-inner nav a {
+        font-size: 13px;
+    }
+
+    .header-inner .header-button {
+        padding: 13px 20px;
+        font-size: 14px;
+    }
 }
 
 nav{
@@ -1127,6 +1227,10 @@ nav a:hover{
 
     gap:18px;
 
+    padding: inherit;
+
+
+
 }
 
 .form-row{
@@ -1586,17 +1690,14 @@ HEADER
 
 <header>
 
-<div class="container header-inner">
+<!-- <div class="container header-inner">
+
 
 <a href="#" class="logo">
-
-CONNUVAL
-
-<span>
-CONSTRUCTORA NÚÑEZ VALDÉZ
-</span>
-
+    <img src="./img/logo.png" alt="Constructora Núñez Valdéz">
+    <span>CONSTRUCTORA NÚÑEZ VALDÉZ</span>
 </a>
+
 
 
 <nav>
@@ -1631,6 +1732,30 @@ class="header-button"
 >
 Solicitar información
 </a>
+
+</div> -->
+
+<div class="container header-inner">
+
+    <a href="#proyecto" class="logo">
+        <img src="./img/logo.png" alt="Quintas Towers">
+    </a>
+
+    <nav>
+        <a href="#proyecto">Proyecto</a>
+        <a href="#apartamentos">Apartamentos</a>
+        <a href="#amenidades">Amenidades</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#galeria">Galería</a>
+    </nav>
+
+    <a
+        href="https://api.whatsapp.com/send?phone=18096277229&text=Hola%2C%20estoy%20interesado%20en%20Quintas%20Towers"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="header-button">
+        Solicitar información
+    </a>
 
 </div>
 
@@ -1704,7 +1829,7 @@ Explorar ubicación
 <div class="hero-main-image">
 
 <img
-src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=90"
+src="./img/QT_EXT C2_hires.jpg"
 alt="Quintas Towers"
 >
 
@@ -1714,7 +1839,7 @@ alt="Quintas Towers"
 <div class="hero-small-image">
 
 <img
-src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=85"
+src="./img/QT_SOCIAL_C3 hires.jpg"
 alt="Interior residencial"
 >
 
@@ -1770,7 +1895,7 @@ Proyecto residencial
 <div class="quick-item">
 
 <div class="quick-number">
-09
+10
 </div>
 
 <strong>
@@ -1840,7 +1965,7 @@ INTRO
 <div class="intro-image">
 
 <img
-src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=90"
+src="./img/QT_APT A_COCINA_hires.jpg"
 alt="Apartamento moderno"
 >
 
@@ -1981,7 +2106,7 @@ de vivir y diferentes necesidades.
 <div class="apartment-image">
 
 <img
-src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85"
+src="./img/QT_APT A_HABITACION_hires.jpg"
 alt="Apartamento de 1 habitación"
 >
 
@@ -2036,7 +2161,7 @@ Distribución
 <div class="apartment-image">
 
 <img
-src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85"
+src="./img/QT_APT B_SALA COMEDOR _hires.jpg"
 alt="Apartamento de 2 habitaciones"
 >
 
@@ -2091,7 +2216,7 @@ Distribución
 <div class="apartment-image">
 
 <img
-src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=85"
+src="./img/QT_SOCIAL TORRE_C1.jpg"
 alt="Apartamento de 3 habitaciones"
 >
 
@@ -2281,7 +2406,7 @@ AMENITIES
 <div class="amenities-photo">
 
 <img
-src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1200&q=90"
+src="./img/QT_SOCIAL_C1_hires.jpg"
 alt="Piscina residencial"
 >
 
@@ -2423,7 +2548,7 @@ LOCATION
 <div class="location-image">
 
 <img
-src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=90"
+src="./img/QT_SOCIAL TORRE_C2.jpg"
 alt="Zona residencial"
 >
 
@@ -2579,7 +2704,7 @@ de Quintas Towers.
 <div class="gallery-main">
 
 <img
-src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=90"
+src="./img/QT_EXT C2_hires.jpg"
 alt="Interior moderno"
 >
 
@@ -2592,7 +2717,7 @@ alt="Interior moderno"
 <div class="gallery-small">
 
 <img
-src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85"
+src="./img/QT_APT A_COCINA_hires.jpg"
 alt="Sala"
 >
 
@@ -2602,7 +2727,7 @@ alt="Sala"
 <div class="gallery-small">
 
 <img
-src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85"
+src="./img/QT_APT A_HABITACION_hires.jpg"
 alt="Apartamento"
 >
 
