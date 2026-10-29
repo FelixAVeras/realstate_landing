@@ -317,6 +317,148 @@
             justify-content: center;
             border: 2px dashed #B5D3C6;
         }
+
+        /* =====================================
+   GALERÍA DE FOTOGRAFÍAS
+===================================== */
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 250px);
+    gap: 1.25rem;
+}
+
+/* Tarjetas de fotografías */
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    background-color: var(--tint-green);
+    box-shadow: 0 10px 30px rgba(3, 88, 85, 0.08);
+}
+
+/* Imagen */
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Fotografía principal */
+
+.gallery-large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* Efecto hover */
+
+.gallery-item:hover img {
+    transform: scale(1.06);
+}
+
+/* Capa de texto */
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding: 1.5rem;
+
+    background: linear-gradient(
+        to top,
+        rgba(3, 61, 59, 0.85),
+        rgba(3, 61, 59, 0.05)
+    );
+
+    color: #ffffff;
+    opacity: 0.95;
+    transition: all 0.3s ease;
+}
+
+/* Etiqueta */
+
+.gallery-overlay span {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--brand-green);
+    margin-bottom: 0.4rem;
+}
+
+/* Título */
+
+.gallery-overlay h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 0;
+}
+
+/* Hover */
+
+.gallery-item:hover .gallery-overlay {
+    background: linear-gradient(
+        to top,
+        rgba(3, 61, 59, 0.95),
+        rgba(3, 61, 59, 0.1)
+    );
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+/* Tablets */
+
+@media (max-width: 991px) {
+
+    .photo-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 220px);
+    }
+
+    .gallery-large {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+}
+
+/* Móviles */
+
+@media (max-width: 575px) {
+
+    .photo-gallery {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 240px);
+        gap: 1rem;
+    }
+
+    .gallery-large {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .gallery-overlay {
+        padding: 1.25rem;
+    }
+
+    .gallery-overlay h3 {
+        font-size: 1.3rem;
+    }
+
+}
     </style>
 </head>
 <body>
@@ -746,6 +888,98 @@
             </div>
         </div>
     </section>
+
+    <!-- GALERÍA DE FOTOGRAFÍAS -->
+<section class="py-5" id="galeria">
+    <div class="container py-4">
+
+        <!-- ENCABEZADO -->
+        <div class="text-center mb-5">
+            <span class="badge-soft-mint mb-2">
+                CONOCE RIBERAS DE COMATE
+            </span>
+
+            <h2 class="display-6 fw-bold">
+                UN LUGAR PARA IMAGINAR TU FUTURO
+            </h2>
+
+            <p class="text-muted mx-auto" style="max-width: 700px;">
+                Descubre los espacios, paisajes y detalles de un proyecto
+                concebido para disfrutar de la naturaleza y crear nuevas
+                oportunidades.
+            </p>
+        </div>
+
+        <!-- GALERÍA -->
+        <div class="photo-gallery">
+
+            <!-- FOTO PRINCIPAL -->
+            <div class="gallery-item gallery-large">
+                <img src="img/foto-portada-1800.jpg"
+                     alt="Vista general de Riberas de Comate">
+
+                <div class="gallery-overlay">
+                    <span>RIBERAS DE COMATE</span>
+                    <h3>Un entorno para disfrutar</h3>
+                </div>
+            </div>
+
+            <!-- FOTO 2 -->
+            <div class="gallery-item">
+                <img src="img/18.jpg"
+                     alt="Entrada del proyecto Riberas de Comate">
+
+                <div class="gallery-overlay">
+                    <span>EL PROYECTO</span>
+                    <h3>Un nuevo comienzo</h3>
+                </div>
+            </div>
+
+            <!-- FOTO 3 -->
+            <div class="gallery-item">
+                <img src="img/32.jpg"
+                     alt="Espacios naturales del proyecto">
+
+                <div class="gallery-overlay">
+                    <span>NATURALEZA</span>
+                    <h3>Espacios para respirar</h3>
+                </div>
+            </div>
+            
+
+            <!-- FOTO 4 -->
+            <div class="gallery-item">
+                <img src="img/RBL_0008 (1) (1).jpg"
+                     alt="Amenidades de Riberas de Comate">
+
+                <div class="gallery-overlay">
+                    <span>AMENIDADES</span>
+                    <h3>Momentos para compartir</h3>
+                </div>
+            </div>
+
+            <!-- FOTO 5 -->
+            <div class="gallery-item">
+                <img src="img/RBL_0054.jpg"
+                     alt="Paisaje del proyecto">
+
+                <div class="gallery-overlay">
+                    <span>UN ENTORNO DIFERENTE</span>
+                    <h3>Tu espacio, tu futuro</h3>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- BOTÓN -->
+        <div class="text-center mt-5">
+            <a href="#contacto" class="btn btn-brand">
+                QUIERO CONOCER EL PROYECTO
+            </a>
+        </div>
+
+    </div>
+</section>
 
     <!-- BAYAGUANA & MAPA -->
     <section class="py-5 bg-mint">
