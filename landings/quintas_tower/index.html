@@ -1,3005 +1,1252 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riberas de Comate | Invierte en tierra. Construye tu futuro.</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* ============================================================
+           Identidad visual · Riberas del Comate (Guía NOV. 2024)
+           Colores:  Verde profundo #035855  ·  Verde hoja #6BB971
+           Tipografías: Runalto (títulos) · Montserrat Regular (texto)
+           ============================================================ */
 
-<title>Quintas Towers | CONNUVAL</title>
+        /* Runalto es una fuente de licencia propia: coloca los archivos en /fonts.
+           Mientras no estén, el navegador usa Cormorant Garamond (serif similar). */
+        @font-face {
+            font-family: 'Runalto';
+            src: url('fonts/Runalto.woff2') format('woff2'),
+                 url('fonts/Runalto.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
 
-<meta
-name="description"
-content="Quintas Towers. Proyecto residencial en Madre Vieja Sur, San Cristóbal. Apartamentos de 1, 2 y 3 habitaciones."
->
+        :root {
+            /* Paleta de marca */
+            --brand-dark: #035855;           /* RGB 8,88,85  · CMYK 89/38/57/38 */
+            --brand-green: #6BB971;          /* RGB 107,185,113 · CMYK 62/0/69/0 */
+            --brand-green-deep: #3F8F4B;     /* Verde hoja oscurecido para texto sobre fondo claro (contraste) */
+            --brand-ink: #023D3B;            /* Texto sobre verde hoja */
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            /* Derivados claros de la paleta */
+            --bg-main: #F7FAF7;
+            --tint-green: #E9F5EA;
+            --tint-teal: #E1EEED;
+            --tint-soft: #F0F7F0;
+            --card-bg: #FFFFFF;
+            --text-main: #1F3634;
+            --text-muted: #5B6F6C;
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+            --font-heading: 'Runalto', 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Montserrat', sans-serif;
 
+            /* Bootstrap alineado a la marca */
+            --bs-body-font-family: var(--font-body);
+            --bs-body-color: var(--text-main);
+            --bs-secondary-color: var(--text-muted);
+            --bs-success-rgb: 63, 143, 75;
+            --bs-primary-rgb: 3, 88, 85;
+            --bs-info-rgb: 3, 88, 85;
+            --bs-warning-rgb: 107, 185, 113;
+            --bs-danger-rgb: 63, 143, 75;
+        }
 
-<style>
+        body {
+            font-family: var(--font-body);
+            font-weight: 400;
+            color: var(--text-main);
+            background-color: var(--bg-main);
+            line-height: 1.65;
+        }
 
-/* =====================================================
-   VARIABLES
-===================================================== */
+        /* Títulos: Runalto (un solo peso, sin negritas sintéticas) */
+        h1, h2, h3, h4, h5, h6, .navbar-brand, .display-3, .display-5, .display-6 {
+            font-family: var(--font-heading);
+            font-weight: 500 !important;
+            color: var(--brand-dark);
+            letter-spacing: 0;
+        }
 
-:root{
+        /* Marca en la barra de navegación (aproximación tipográfica del logo) */
+        .brand-mark {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        .brand-mark svg { flex: none; }
+        .brand-mark .bm-text { display: flex; flex-direction: column; line-height: 1; }
+        .brand-mark .bm-1 {
+            font-family: var(--font-heading);
+            color: var(--brand-green);
+            font-size: 1.3rem;
+        }
+        .brand-mark .bm-2 {
+            font-family: var(--font-heading);
+            color: var(--brand-dark);
+            font-size: 1.85rem;
+            margin-top: -0.1rem;
+        }
+        .brand-mark .bm-2 small {
+            font-size: 0.85rem;
+            color: var(--brand-green);
+            margin-right: 0.1rem;
+        }
+        .brand-mark .bm-3 {
+            font-family: var(--font-body);
+            color: var(--brand-dark);
+            font-size: 0.5rem;
+            letter-spacing: 0.3em;
+            margin-top: 0.35rem;
+        }
 
-    --olive:#344238;
-    --olive-light:#526253;
+        .navbar .nav-link {
+            color: var(--brand-dark);
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+        }
+        .navbar .nav-link:hover { color: var(--brand-green-deep); }
 
-    --sand:#e8dfd1;
+        /* Botones */
+        .btn-brand {
+            background-color: var(--brand-dark);
+            color: #ffffff;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            padding: 0.85rem 2rem;
+            border-radius: 50rem;
+            border: 2px solid var(--brand-dark);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(3, 88, 85, 0.25);
+        }
+        .btn-brand:hover {
+            background-color: var(--brand-green-deep);
+            border-color: var(--brand-green-deep);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(63, 143, 75, 0.35);
+        }
 
-    --terracotta:#b77c63;
+        /* Botón claro para fondos verde profundo */
+        .btn-brand-light {
+            background-color: var(--brand-green);
+            color: var(--brand-ink);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            padding: 0.85rem 2rem;
+            border-radius: 50rem;
+            border: 2px solid var(--brand-green);
+            transition: all 0.3s ease;
+        }
+        .btn-brand-light:hover {
+            background-color: #ffffff;
+            border-color: #ffffff;
+            color: var(--brand-dark);
+            transform: translateY(-2px);
+        }
 
-    --cream:#f7f4ee;
+        .btn-brand-outline {
+            border: 2px solid var(--brand-dark);
+            color: var(--brand-dark);
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            padding: 0.85rem 2rem;
+            border-radius: 50rem;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+        .btn-brand-outline:hover {
+            background-color: var(--brand-dark);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
 
-    --white:#ffffff;
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 0.85rem 2rem;
+            border-radius: 50rem;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .btn-whatsapp:hover {
+            background-color: #1da851;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
 
-    --black:#1d211d;
+        /* Hero sobre verde profundo (como la portada de la guía) */
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(3, 88, 85, 0.96) 0%, rgba(3, 88, 85, 0.88) 100%),
+                        url('img/Escena\ 13_upscale01.png') center/cover no-repeat;
+            color: #ffffff;
+            padding: 6rem 0;
+            border-bottom-left-radius: 2.5rem;
+            border-bottom-right-radius: 2.5rem;
+        }
+        .hero-banner h1 { color: #ffffff; }
+        .hero-banner .col-lg-7 > p.text-muted { color: rgba(255, 255, 255, 0.85) !important; }
 
-    --gray:#73766f;
+        /* Etiquetas */
+        .badge-soft-mint {
+            background-color: var(--tint-green);
+            color: var(--brand-dark);
+            font-weight: 600;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            display: inline-block;
+        }
+        .badge-soft-teal {
+            background-color: var(--tint-teal);
+            color: var(--brand-dark);
+            font-weight: 600;
+            padding: 0.4rem 1rem;
+            border-radius: 50rem;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+        }
+        .badge-ribbon {
+            background-color: var(--brand-green);
+            color: var(--brand-ink);
+        }
 
-    --line:#ddd9d0;
+        /* Tarjetas */
+        .card-soft {
+            background: var(--card-bg);
+            border: 1px solid rgba(3, 88, 85, 0.06);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(3, 88, 85, 0.05);
+            transition: all 0.3s ease;
+        }
+        .card-soft:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(3, 88, 85, 0.12);
+        }
+        .card-soft img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
 
-    --serif:"Cormorant Garamond", serif;
+        .bg-mint { background-color: var(--tint-green); }
+        .bg-blue-soft { background-color: var(--tint-teal); }
+        .bg-tint-soft { background-color: var(--tint-soft); }
 
-    --sans:"Manrope", sans-serif;
+        /* Imágenes en arco: eco del marco del logo */
+        .img-arch {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 12rem 12rem 1.5rem 1.5rem;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 1.25rem;
+            padding: 1.75rem;
+            border: 1px solid rgba(3, 88, 85, 0.06);
+            box-shadow: 0 8px 25px rgba(3, 88, 85, 0.03);
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(3, 88, 85, 0.09);
+        }
+
+        .icon-bubble {
+            width: 55px;
+            height: 55px;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Formularios */
+        .form-control:focus, .form-select:focus {
+            border-color: var(--brand-green);
+            box-shadow: 0 0 0 0.25rem rgba(107, 185, 113, 0.25);
+        }
+
+        /* Acordeón */
+        .accordion-item {
+            border: none;
+            border-radius: 1rem !important;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(3, 88, 85, 0.04);
+        }
+        .accordion-button {
+            background-color: #ffffff;
+            font-weight: 600;
+            color: var(--brand-dark);
+            padding: 1.25rem;
+        }
+        .accordion-button:not(.collapsed) {
+            background-color: var(--tint-green);
+            color: var(--brand-dark);
+            box-shadow: none;
+        }
+        .accordion-button:focus {
+            border-color: var(--brand-green);
+            box-shadow: 0 0 0 0.25rem rgba(107, 185, 113, 0.25);
+        }
+
+        .map-placeholder {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #B5D3C6;
+        }
+
+        /* =====================================
+   GALERÍA DE FOTOGRAFÍAS
+===================================== */
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 250px);
+    gap: 1.25rem;
 }
 
+/* Tarjetas de fotografías */
 
-/* =====================================================
-   RESET
-===================================================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    background-color: var(--tint-green);
+    box-shadow: 0 10px 30px rgba(3, 88, 85, 0.08);
 }
 
-html{
-    scroll-behavior:smooth;
-}
+/* Imagen */
 
-body{
-    background:var(--cream);
-    color:var(--black);
-
-    font-family:var(--sans);
-
-    line-height:1.6;
-}
-
-img{
-    width:100%;
-    display:block;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-
-/* =====================================================
-   GLOBAL
-===================================================== */
-
-.container{
-    width:min(1180px,90%);
-    margin:auto;
-}
-
-.section{
-    padding:110px 0;
-}
-
-.label{
-    font-size:10px;
-
-    text-transform:uppercase;
-
-    letter-spacing:2.5px;
-
-    color:var(--olive-light);
-
-    margin-bottom:18px;
-}
-
-.title{
-    font-family:var(--serif);
-
-    font-size:clamp(48px,6vw,78px);
-
-    font-weight:500;
-
-    line-height:.95;
-}
-
-.description{
-    color:var(--gray);
-
-    font-size:14px;
-
-    line-height:1.9;
-}
-
-
-/* =====================================================
-   HEADER
-===================================================== */ 
-
-
-
-/* ENCABEZADO */
-.header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 35px;
-    min-height: 150px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
-/* LOGO GRANDE */
-.header-inner .logo {
-    display: flex;
-    align-items: center;
-    flex: 0 0 350px;
-    width: 350px;
-    text-decoration: none;
-}
-
-.header-inner .logo img {
-    display: block;
+.gallery-item img {
     width: 100%;
-    height: 145px;
-    object-fit: contain;
-    object-position: left center;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
 }
 
-/* MENÚ DE NAVEGACIÓN */
-.header-inner nav {
+/* Fotografía principal */
+
+.gallery-large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* Efecto hover */
+
+.gallery-item:hover img {
+    transform: scale(1.06);
+}
+
+/* Capa de texto */
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    flex: 1;
-    white-space: nowrap;
-}
+    flex-direction: column;
+    justify-content: flex-end;
 
-.header-inner nav a {
-    color: #18252c;
-    font-size: 16px;
-    font-weight: 400;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
+    padding: 1.5rem;
 
-.header-inner nav a:hover {
-    color: #426d50;
-}
+    background: linear-gradient(
+        to top,
+        rgba(3, 61, 59, 0.85),
+        rgba(3, 61, 59, 0.05)
+    );
 
-/* BOTÓN DE WHATSAPP */
-.header-inner .header-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    padding: 18px 25px;
-    background: var(--olive);
     color: #ffffff;
-    font-size: 15px;
+    opacity: 0.95;
+    transition: all 0.3s ease;
+}
+
+/* Etiqueta */
+
+.gallery-overlay span {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
     font-weight: 600;
-    text-decoration: none;
-    /* border-radius: 5px; */
-    transition: background 0.3s ease;
+    letter-spacing: 0.12em;
+    color: var(--brand-green);
+    margin-bottom: 0.4rem;
 }
 
-.header-inner .header-button:hover {
-    background: #12392f;
-}
-
-/* TABLET */
-@media (max-width: 1100px) {
-    .header-inner {
-        gap: 20px;
-    }
-
-    .header-inner .logo {
-        flex-basis: 250px;
-        width: 250px;
-    }
-
-    .header-inner .logo img {
-        height: 115px;
-    }
-
-    .header-inner nav {
-        gap: 16px;
-    }
-
-    .header-inner nav a {
-        font-size: 14px;
-    }
-
-    .header-inner .header-button {
-        padding: 14px 16px;
-        font-size: 13px;
-    }
-}
-
-/* MÓVIL */
-@media (max-width: 768px) {
-    .header-inner {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 18px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
-
-    .header-inner .logo {
-        flex: 0 1 220px;
-        width: 220px;
-        justify-content: center;
-    }
-
-    .header-inner .logo img {
-        width: 100%;
-        height: 100px;
-        object-position: center;
-    }
-
-    .header-inner nav {
-        flex: 1 1 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 14px 20px;
-        white-space: normal;
-    }
-
-    .header-inner nav a {
-        font-size: 13px;
-    }
-
-    .header-inner .header-button {
-        padding: 13px 20px;
-        font-size: 14px;
-    }
-}
-
-nav{
-
-    display:flex;
-
-    gap:30px;
-
-}
-
-nav a{
-
-    font-size:11px;
-
-    color:#656960;
-
-}
-
-nav a:hover{
-
-    color:var(--olive);
-
-}
-
-.header-button{
-
-    background:var(--olive);
-
-    color:white;
-
-    padding:12px 20px;
-
-    font-size:10px;
-
-    letter-spacing:1px;
-
-    text-transform:uppercase;
-
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero{
-
-    padding:55px 0 90px;
-
-}
-
-.hero-grid{
-
-    display:grid;
-
-    grid-template-columns:42% 58%;
-
-    align-items:center;
-
-    gap:50px;
-
-}
-
-
-/* LEFT */
-
-.hero-content{
-
-    padding-left:20px;
-
-}
-
-.hero-number{
-
-    font-family:var(--serif);
-
-    font-size:18px;
-
-    color:var(--terracotta);
-
-    margin-bottom:25px;
-
-}
-
-.hero h1{
-
-    font-family:var(--serif);
-
-    font-size:clamp(70px,8vw,110px);
-
-    line-height:.78;
-
-    font-weight:500;
-
-    color:var(--olive);
-
-    margin-bottom:35px;
-
-}
-
-.hero-description{
-
-    max-width:420px;
-
-    margin-bottom:35px;
-
-}
-
-.hero-actions{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:25px;
-
-}
-
-.button{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:14px 24px;
-
-    font-size:10px;
-
-    text-transform:uppercase;
-
-    letter-spacing:1.3px;
-
-}
-
-.button-primary{
-
-    background:var(--olive);
-
-    color:white;
-
-}
-
-.button-link{
-
-    color:var(--olive);
-
-    border-bottom:1px solid var(--olive);
-
-    padding-bottom:5px;
-
-}
-
-
-/* HERO IMAGES */
-
-.hero-visual{
-
-    position:relative;
-
-    height:680px;
-
-}
-
-.hero-main-image{
-
-    position:absolute;
-
-    right:0;
-
-    top:0;
-
-    width:78%;
-
-    height:590px;
-
-    overflow:hidden;
-
-}
-
-.hero-main-image img{
-
-    height:100%;
-
-    object-fit:cover;
-
-}
-
-.hero-small-image{
-
-    position:absolute;
-
-    left:0;
-
-    bottom:0;
-
-    width:42%;
-
-    height:270px;
-
-    border:12px solid var(--cream);
-
-    overflow:hidden;
-
-}
-
-.hero-small-image img{
-
-    height:100%;
-
-    object-fit:cover;
-
-}
-
-.hero-location{
-
-    position:absolute;
-
-    right:20px;
-
-    bottom:35px;
-
-    background:white;
-
-    padding:15px 20px;
-
-    font-size:10px;
-
-    text-transform:uppercase;
-
-    letter-spacing:1px;
-
-}
-
-
-/* =====================================================
-   QUICK DATA
-===================================================== */
-
-.quick-data{
-
-    margin-top:20px;
-
-}
-
-.quick-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:1px;
-
-    background:var(--line);
-
-}
-
-.quick-item{
-
-    background:white;
-
-    padding:28px 25px;
-
-}
-
-.quick-number{
-
-    font-family:var(--serif);
-
-    color:var(--terracotta);
-
-    font-size:35px;
-
-    line-height:1;
-
-    margin-bottom:7px;
-
-}
-
-.quick-item strong{
-
-    display:block;
-
-    font-size:12px;
-
-    font-weight:600;
-
-}
-
-.quick-item span{
-
-    color:var(--gray);
-
-    font-size:10px;
-
-}
-
-
-/* =====================================================
-   INTRO
-===================================================== */
-
-.intro{
-
-    background:white;
-
-}
-
-.intro-grid{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:100px;
-
-    align-items:center;
-
-}
-
-.intro-image{
-
-    position:relative;
-
-}
-
-.intro-image img{
-
-    height:600px;
-
-    object-fit:cover;
-
-}
-
-.intro-caption{
-
-    position:absolute;
-
-    right:-35px;
-
-    bottom:35px;
-
-    background:var(--terracotta);
-
-    color:white;
-
-    width:100px;
-
-    height:100px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    font-family:var(--serif);
-
-    font-size:21px;
-
-    line-height:1;
-
-}
-
-.intro-content{
-
-    max-width:480px;
-
-}
-
-.intro-content .title{
-
-    color:var(--olive);
-
-    margin-bottom:30px;
-
-}
-
-.intro-content .description{
-
-    margin-bottom:35px;
-
-}
-
-.intro-points{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:25px;
-
-}
-
-.intro-point{
-
-    border-top:1px solid var(--line);
-
-    padding-top:15px;
-
-}
-
-.intro-point strong{
-
-    display:block;
-
-    font-size:12px;
-
-    margin-bottom:4px;
-
-}
-
-.intro-point span{
-
-    color:var(--gray);
-
-    font-size:10px;
-
-}
-
-
-/* =====================================================
-   APARTMENTS
-===================================================== */
-
-.apartments{
-
-    background:var(--sand);
-
-}
-
-.section-header{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:end;
-
-    margin-bottom:50px;
-
-}
-
-.section-header .description{
-
-    max-width:370px;
-
-}
-
-
-/* CARDS */
-
-.apartment-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:20px;
-
-}
-
-.apartment-card{
-
-    background:var(--cream);
-
-}
-
-.apartment-image{
-
-    height:300px;
-
-    overflow:hidden;
-
-}
-
-.apartment-image img{
-
-    height:100%;
-
-    object-fit:cover;
-
-    transition:.5s;
-
-}
-
-.apartment-card:hover img{
-
-    transform:scale(1.05);
-
-}
-
-.apartment-content{
-
-    padding:27px;
-
-}
-
-.apartment-index{
-
-    color:var(--terracotta);
-
-    font-size:10px;
-
-    letter-spacing:2px;
-
-    margin-bottom:10px;
-
-}
-
-.apartment-title{
-
-    font-family:var(--serif);
-
-    color:var(--olive);
-
-    font-size:34px;
-
-    font-weight:500;
-
-    margin-bottom:20px;
-
-}
-
-.apartment-meta{
-
-    display:flex;
-
-    gap:25px;
-
-    padding-top:15px;
-
-    border-top:1px solid var(--line);
-
-}
-
-.meta strong{
-
-    display:block;
-
-    font-size:12px;
-
-}
-
-.meta span{
-
-    color:var(--gray);
-
-    font-size:9px;
-
-}
-
-
-/* =====================================================
-   WHY
-===================================================== */
-
-.why{
-
-    background:var(--olive);
-
-    color:white;
-
-}
-
-.why-grid{
-
-    display:grid;
-
-    grid-template-columns:40% 60%;
-
-    gap:70px;
-
-}
-
-.why-content .label{
-
-    color:#c5c9bd;
-
-}
-
-.why-content .title{
-
-    margin-bottom:25px;
-
-}
-
-.why-content .description{
-
-    color:#c3c7c0;
-
-}
-
-.why-list{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-}
-
-.why-item{
-
-    padding:30px;
-
-    border-left:1px solid rgba(255,255,255,.15);
-
-    border-top:1px solid rgba(255,255,255,.15);
-
-}
-
-.why-item:nth-child(3),
-.why-item:nth-child(4){
-
-    border-bottom:1px solid rgba(255,255,255,.15);
-
-}
-
-.why-number{
-
-    color:#d09a83;
-
-    font-family:var(--serif);
-
-    font-size:30px;
-
-    margin-bottom:30px;
-
-}
-
-.why-item h3{
-
-    font-family:var(--serif);
-
-    font-size:27px;
-
-    font-weight:400;
-
-    margin-bottom:8px;
-
-}
-
-.why-item p{
-
-    color:#b7bdb5;
-
-    font-size:11px;
-
-    line-height:1.7;
-
-}
-
-
-/* =====================================================
-   AMENITIES
-===================================================== */
-
-.amenities{
-
-    background:white;
-
-}
-
-.amenities-grid{
-
-    display:grid;
-
-    grid-template-columns:45% 55%;
-
-}
-
-.amenities-photo{
-
-    height:650px;
-
-}
-
-.amenities-photo img{
-
-    height:100%;
-
-    object-fit:cover;
-
-}
-
-.amenities-content{
-
-    padding:60px 70px;
-
-    background:var(--cream);
-
-}
-
-.amenities-content .title{
-
-    color:var(--olive);
-
-    margin-bottom:40px;
-
-}
-
-.amenity-grid{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:0;
+/* Título */
 
+.gallery-overlay h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 0;
 }
 
-.amenity-card{
+/* Hover */
 
-    padding:22px 0;
-
-    border-top:1px solid var(--line);
-
-}
-
-.amenity-card:nth-child(odd){
-
-    margin-right:20px;
-
-}
-
-.amenity-card strong{
-
-    display:block;
-
-    font-size:12px;
-
-    margin-bottom:4px;
-
-}
-
-.amenity-card span{
-
-    font-size:10px;
-
-    color:var(--gray);
-
-}
-
-
-/* =====================================================
-   LOCATION
-===================================================== */
-
-.location{
-
-    background:var(--sand);
-
-}
-
-.location-grid{
-
-    display:grid;
-
-    grid-template-columns:55% 45%;
-
-    gap:60px;
-
-    align-items:center;
-
-}
-
-.location-visual{
-
-    position:relative;
-
-    height:560px;
-
-}
-
-.location-image{
-
-    width:80%;
-
-    height:100%;
-
-}
-
-.location-image img{
-
-    height:100%;
-
-    object-fit:cover;
-
-}
-
-.location-card{
-
-    position:absolute;
-
-    right:0;
-
-    bottom:40px;
-
-    width:270px;
-
-    background:white;
-
-    padding:30px;
-
-}
-
-.location-card h3{
-
-    font-family:var(--serif);
-
-    color:var(--olive);
-
-    font-size:28px;
-
-    font-weight:500;
-
-    margin-bottom:20px;
-
-}
-
-.location-list{
-
-    border-top:1px solid var(--line);
-
-}
-
-.location-list div{
-
-    padding:12px 0;
-
-    border-bottom:1px solid var(--line);
-
-    display:flex;
-
-    justify-content:space-between;
-
-    font-size:10px;
-
-}
-
-.location-list span{
-
-    color:var(--gray);
-
-}
-
-
-/* =====================================================
-   GALLERY
-===================================================== */
-
-.gallery{
-
-    background:white;
-
-}
-
-.gallery-grid{
-
-    display:grid;
-
-    grid-template-columns:1.4fr .6fr;
-
-    gap:18px;
-
-}
-
-.gallery-main{
-
-    height:650px;
-
-    overflow:hidden;
-
-}
-
-.gallery-main img{
-
-    height:100%;
-
-    object-fit:cover;
-
-}
-
-.gallery-column{
-
-    display:grid;
-
-    grid-template-rows:1fr 1fr;
-
-    gap:18px;
-
-}
-
-.gallery-small{
-
-    overflow:hidden;
-
-}
-
-.gallery-small img{
-
-    height:100%;
-
-    object-fit:cover;
-
-    transition:.5s;
-
-}
-
-.gallery-small:hover img{
-
-    transform:scale(1.04);
-
-}
-
-
-/* =====================================================
-   CONTACT
-===================================================== */
-
-.contact{
-
-    background:var(--cream);
-
-}
-
-.contact-box{
-
-    background:white;
-
-    padding:70px;
-
-    display:grid;
-
-    grid-template-columns:45% 55%;
-
-    gap:70px;
-
-}
-
-.contact-intro .title{
-
-    color:var(--olive);
-
-    margin-bottom:25px;
-
-}
-
-.contact-form{
-
-    display:grid;
-
-    gap:18px;
-
-    padding: inherit;
-
-
-
-}
-
-.form-row{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:15px;
-
-}
-
-.form-group label{
-
-    display:block;
-
-    font-size:9px;
-
-    text-transform:uppercase;
-
-    letter-spacing:1.5px;
-
-    color:var(--gray);
-
-    margin-bottom:8px;
-
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea{
-
-    width:100%;
-
-    border:0;
-
-    border-bottom:1px solid var(--line);
-
-    background:transparent;
-
-    padding:12px 0;
-
-    outline:none;
-
-    font-size:12px;
-
-}
-
-.form-group textarea{
-
-    min-height:80px;
-
-    resize:none;
-
-}
-
-.submit{
-
-    background:var(--olive);
-
-    color:white;
-
-    border:0;
-
-    padding:16px;
-
-    font-size:10px;
-
-    text-transform:uppercase;
-
-    letter-spacing:1.5px;
-
-    cursor:pointer;
-
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
-
-    background:#202720;
-
-    color:white;
-
-    padding:65px 0 25px;
-
-}
-
-.footer-grid{
-
-    display:grid;
-
-    grid-template-columns:1.5fr 1fr 1fr;
-
-    gap:50px;
-
-    padding-bottom:45px;
-
-}
-
-.footer-logo{
-
-    font-size:20px;
-
-    letter-spacing:2px;
-
-    margin-bottom:15px;
-
-}
-
-footer p{
-
-    color:#9ca29b;
-
-    font-size:11px;
-
-    max-width:320px;
-
-}
-
-footer h4{
-
-    font-size:9px;
-
-    text-transform:uppercase;
-
-    letter-spacing:2px;
-
-    margin-bottom:18px;
-
-}
-
-footer a{
-
-    display:block;
-
-    color:#9ca29b;
-
-    font-size:11px;
-
-    margin-bottom:8px;
-
-}
-
-.footer-bottom{
-
-    border-top:1px solid rgba(255,255,255,.1);
-
-    padding-top:20px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    color:#737a72;
-
-    font-size:9px;
-
-}
-
-
-/* =====================================================
-   WHATSAPP
-===================================================== */
-
-.whatsapp{
-
-    position:fixed;
-
-    right:24px;
-
-    bottom:24px;
-
-    width:54px;
-
-    height:54px;
-
-    border-radius:50%;
-
-    background:var(--terracotta);
-
-    color:white;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    z-index:100;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.15);
-
+.gallery-item:hover .gallery-overlay {
+    background: linear-gradient(
+        to top,
+        rgba(3, 61, 59, 0.95),
+        rgba(3, 61, 59, 0.1)
+    );
 }
-
 
-/* =====================================================
+/* =====================================
    RESPONSIVE
-===================================================== */
+===================================== */
 
-@media(max-width:950px){
+/* Tablets */
 
-    nav{
-        display:none;
+@media (max-width: 991px) {
+
+    .photo-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 220px);
     }
 
-    .hero-grid,
-    .intro-grid,
-    .why-grid,
-    .amenities-grid,
-    .location-grid,
-    .contact-box{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .hero-visual{
-
-        height:550px;
-
-    }
-
-    .quick-grid{
-
-        grid-template-columns:1fr 1fr;
-
-    }
-
-    .apartment-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .why-content{
-
-        margin-bottom:30px;
-
-    }
-
-    .amenities-photo{
-
-        height:450px;
-
-    }
-
-    .location-grid{
-
-        gap:30px;
-
-    }
-
-    .contact-box{
-
-        padding:50px 35px;
-
+    .gallery-large {
+        grid-column: span 2;
+        grid-row: span 1;
     }
 
 }
 
+/* Móviles */
 
-@media(max-width:600px){
+@media (max-width: 575px) {
 
-    .section{
-
-        padding:75px 0;
-
+    .photo-gallery {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 240px);
+        gap: 1rem;
     }
 
-    .header-button{
-
-        display:none;
-
+    .gallery-large {
+        grid-column: span 1;
+        grid-row: span 1;
     }
 
-    .hero{
-
-        padding-top:25px;
-
+    .gallery-overlay {
+        padding: 1.25rem;
     }
 
-    .hero-content{
-
-        padding-left:0;
-
-    }
-
-    .hero h1{
-
-        font-size:70px;
-
-    }
-
-    .hero-visual{
-
-        height:450px;
-
-    }
-
-    .hero-main-image{
-
-        width:82%;
-
-        height:390px;
-
-    }
-
-    .hero-small-image{
-
-        width:45%;
-
-        height:190px;
-
-    }
-
-    .quick-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .intro-image{
-
-        height:430px;
-
-    }
-
-    .intro-points{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .section-header{
-
-        display:block;
-
-    }
-
-    .section-header .description{
-
-        margin-top:20px;
-
-    }
-
-    .why-list{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .why-item:nth-child(3){
-
-        border-bottom:0;
-
-    }
-
-    .amenities-content{
-
-        padding:50px 30px;
-
-    }
-
-    .amenity-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .amenity-card:nth-child(odd){
-
-        margin-right:0;
-
-    }
-
-    .location-visual{
-
-        height:470px;
-
-    }
-
-    .location-card{
-
-        width:220px;
-
-        padding:22px;
-
-    }
-
-    .gallery-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .gallery-main{
-
-        height:400px;
-
-    }
-
-    .gallery-column{
-
-        height:400px;
-
-    }
-
-    .contact-box{
-
-        padding:40px 25px;
-
-    }
-
-    .form-row{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .footer-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .footer-bottom{
-
-        display:block;
-
-    }
-
-    .footer-bottom span{
-
-        display:block;
-
-        margin-bottom:8px;
-
+    .gallery-overlay h3 {
+        font-size: 1.3rem;
     }
 
 }
-
-</style>
-
+    </style>
 </head>
-
-
 <body>
 
-
-<!-- =====================================================
-HEADER
-===================================================== -->
-
-<header>
-
-<!-- <div class="container header-inner">
-
-
-<a href="#" class="logo">
-    <img src="./img/logo.png" alt="Constructora Núñez Valdéz">
-    <span>CONSTRUCTORA NÚÑEZ VALDÉZ</span>
-</a>
-
-
-
-<nav>
-
-<a href="#proyecto">
-Proyecto
-</a>
-
-<a href="#apartamentos">
-Apartamentos
-</a>
-
-<a href="#amenidades">
-Amenidades
-</a>
-
-<a href="#ubicacion">
-Ubicación
-</a>
-
-<a href="#galeria">
-Galería
-</a>
-
-</nav>
-
-
-<a
-href="https://api.whatsapp.com/send?phone=18096277229&text=Hola%2C%20estoy%20interesado%20en%20Quintas%20Towers."
-target="_blank"
-class="header-button"
->
-Solicitar información
-</a>
-
-</div> -->
-
-<div class="container header-inner">
-
-    <a href="#proyecto" class="logo">
-        <img src="./img/logo.png" alt="Quintas Towers">
-    </a>
-
-    <nav>
-        <a href="#proyecto">Proyecto</a>
-        <a href="#apartamentos">Apartamentos</a>
-        <a href="#amenidades">Amenidades</a>
-        <a href="#ubicacion">Ubicación</a>
-        <a href="#galeria">Galería</a>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top py-3 shadow-sm">
+        <div class="container">
+            <a class="navbar-brand brand-mark" href="#" aria-label="Riberas del Comate">
+                <svg width="30" height="46" viewBox="0 0 30 46" fill="none" stroke="#6BB971" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="1.5" y="1.5" width="27" height="43" rx="13.5"/>
+                    <path d="M20 10v17M20 14l-3-2M20 14l3-2M20 19l-4-2.5M20 19l4-2.5M20 24l-5-3M20 24l5-3"/>
+                    <path d="M4 31c3-3 5-3 8 0s5 3 8 0 5-3 6 0"/>
+                    <path d="M4 36c3-3 5-3 8 0s5 3 8 0 5-3 6 0"/>
+                </svg>
+                <span class="bm-text">
+                    <span class="bm-1">Riberas</span>
+                    <span class="bm-2"><small>del</small>Comate</span>
+                    <span class="bm-3">BAYAGUANA · MONTE PLATA</span>
+                </span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#proyecto">El Proyecto</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#amenidades">Amenidades</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#por-que">¿Por qué Invertir?</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#planes">Planes de Pago</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#faq">FAQ</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <a href="#contacto" class="btn btn-brand btn-sm px-4">Agendar Visita</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <a
-        href="https://api.whatsapp.com/send?phone=18096277229&text=Hola%2C%20estoy%20interesado%20en%20Quintas%20Towers"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="header-button">
-        Solicitar información
-    </a>
+    <!-- HERO SECTION -->
+    <header class="hero-banner">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-7">
+                    <span class="badge-soft-mint mb-3"><i class="bi bi-geo-alt-fill me-1"></i> Bayaguana, República Dominicana</span>
+                    <h1 class="display-3 fw-extrabold mb-3">Invierte en tierra.<br><span style="color: var(--brand-green);">Construye tu futuro.</span></h1>
+                    <p class="fs-5 text-muted mb-4">Solares desde 400 m² en Bayaguana, desde <strong>US$100 por m²</strong>, con facilidades de pago y un entorno diseñado para conectar con la naturaleza, disfrutar y hacer crecer tu patrimonio.</p>
+                    
+                    <div class="row g-3 mb-4">
+                        <div class="col-6 col-sm-3">
+                            <div class="p-3 bg-white rounded-4 text-center shadow-sm">
+                                <span class="d-block text-muted small">Precio m²</span>
+                                <strong class="fs-5" style="color: var(--brand-green-deep);">US$100</strong>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="p-3 bg-white rounded-4 text-center shadow-sm">
+                                <span class="d-block text-muted small">Tamaño</span>
+                                <strong class="fs-5" style="color: var(--brand-dark);">Desde 400m²</strong>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="p-3 bg-white rounded-4 text-center shadow-sm">
+                                <span class="d-block text-muted small">Separación</span>
+                                <strong class="fs-5" style="color: var(--brand-green-deep);">US$1,000</strong>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="p-3 bg-white rounded-4 text-center shadow-sm">
+                                <span class="d-block text-muted small">Financiamiento</span>
+                                <strong class="fs-5" style="color: var(--brand-dark);">24 Meses</strong>
+                            </div>
+                        </div>
+                    </div>
 
-</div>
+                    <p class="text-muted mb-0">Riberas de Comate es más que un proyecto de solares. Es la oportunidad de tener un espacio propio donde puedas construir una casa de descanso, desarrollar tu futuro hogar o realizar una inversión inmobiliaria con visión a largo plazo.</p>
+                </div>
 
-</header>
+                <!-- FORMULARIO HERO -->
+                <div class="col-lg-5" id="contacto">
+                    <div class="bg-white p-4 p-md-5 rounded-4 shadow-lg border-0">
+                        <span class="badge-soft-teal mb-2">SOLICITA INFORMACIÓN</span>
+                        <h3 class="fw-bold h4 mb-2" style="color: var(--brand-dark);">CONOCE LOS SOLARES DISPONIBLES</h3>
+                        <p class="small text-muted mb-4">Déjanos tus datos y recibe información actualizada sobre precios, disponibilidad y opciones de pago.</p>
+                        
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Nombre y apellido</label>
+                                <input type="text" class="form-control form-control-lg bg-light border-0 fs-6" placeholder="Ej. Juan Pérez" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">WhatsApp / Teléfono</label>
+                                <input type="tel" class="form-control form-control-lg bg-light border-0 fs-6" placeholder="+1 (809) 000-0000" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Correo electrónico</label>
+                                <input type="email" class="form-control form-control-lg bg-light border-0 fs-6" placeholder="juan@ejemplo.com" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label small fw-bold">¿Dónde resides?</label>
+                                <select class="form-select form-select-lg bg-light border-0 fs-6" required>
+                                    <option value="" selected disabled>Selecciona tu ubicación</option>
+                                    <option>República Dominicana</option>
+                                    <option>Estados Unidos</option>
+                                    <option>Canadá</option>
+                                    <option>Europa</option>
+                                    <option>Otro</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-brand w-100 py-3 text-uppercase fw-bold">QUIERO CONOCER LOS SOLARES</button>
+                            <span class="d-block text-center small text-muted mt-3">Uno de nuestros asesores te contactará para ayudarte a encontrar la opción ideal.</span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
+    <!-- GALERÍA DE AMENIDADES / RENDERS -->
+    <section class="py-5" id="amenidades">
+        <div class="container py-4">
+            <div class="text-center max-w-700 mx-auto mb-5">
+                <span class="badge-soft-mint mb-2">DISEÑO ARQUITECTÓNICO Y NATURAL</span>
+                <h2 class="display-6 fw-bold">AMENIDADES PARA DISFRUTAR MUCHO MÁS QUE TU SOLAR</h2>
+                <p class="text-muted">Tu experiencia en Riberas de Comate no termina en los límites de tu propiedad. El proyecto contempla espacios arquitectónicos modernos destinados al descanso, entretenimiento y convivencia en un entorno natural.</p>
+            </div>
 
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-soft h-100">
+                        <img src="img/Escena 7_upscale01 (2).png" alt="Entrada Casa Club Riberas de Comate">
+                        <div class="card-body p-4">
+                            <span class="badge-soft-mint mb-2">ARQUITECTURA MODERNA</span>
+                            <h3 class="h5 fw-bold mt-1">Casa Club & Pórtico</h3>
+                            <p class="text-muted small mb-0">Un espacio social moderno con pórtico en madera, pérgolas y vegetación pensados para encuentros especiales.</p>
+                        </div>
+                    </div>
+                </div>
 
-<!-- =====================================================
-HERO
-===================================================== -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-soft h-100">
+                        <img src="img/Escena 4_upscale01.png" alt="Piscina y Jacuzzi Riberas de Comate">
+                        <div class="card-body p-4">
+                            <span class="badge-soft-teal mb-2">RECREACIÓN</span>
+                            <h3 class="h5 fw-bold mt-1">Piscina & Solárium</h3>
+                            <p class="text-muted small mb-0">Área de piscina integrando acabados en coralina, jacuzzi integrado y zona de asoleadero con camastros.</p>
+                        </div>
+                    </div>
+                </div>
 
-<section class="hero">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-soft h-100">
+                        <img src="img/enhanced_RC3_41 - Imagen (2).png" alt="Interior Lounge Casa Club">
+                        <div class="card-body p-4">
+                            <span class="badge-soft-mint mb-2">ESPACIOS ABIERTOS</span>
+                            <h3 class="h5 fw-bold mt-1">Establos y Zona Hípica</h3>
+                            <p class="text-muted small mb-0">Diseño semi-abierto con iluminación cálida, mobiliario confortable y barra de atención para residentes.</p>
+                        </div>
+                    </div>
+                </div>
 
-<div class="container">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-soft h-100">
+                        <img src="img/32.jpg" alt="Terraza Exterior">
+                        <div class="card-body p-4">
+                            <span class="badge-soft-teal mb-2">ENTORNO VERDE</span>
+                            <h3 class="h5 fw-bold mt-1">Áreas Naturales & Lago</h3>
+                            <p class="text-muted small mb-0">Instalaciones amplias con iluminación natural y áreas de paseo, pensadas para la convivencia y el bienestar equino.</p>
+                        </div>
+                    </div>
+                </div>
 
-<div class="hero-grid">
+                <div class="col-md-6 col-lg-8">
+                    <div class="card card-soft h-100">
+                        <img src="img/Scene 2_2_upscale01.png" alt="Parque Infantil Riberas de Comate">
+                        <div class="card-body p-4">
+                            <span class="badge-soft-mint mb-2">PARA LA FAMILIA</span>
+                            <h3 class="h5 fw-bold mt-1">Áreas de Juegos Infantiles</h3>
+                            <p class="text-muted small mb-0">Espacios equipados con juegos para niños rodeados de sombra natural, árboles maduros y senderos seguros.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- SECTION OPORTUNIDADES -->
+    <section class="py-5 bg-mint" id="proyecto">
+        <div class="container py-4">
+            <div class="row align-items-center gy-4">
+                <div class="col-lg-6">
+                    <span class="badge-soft-teal mb-3">DISPONIBILIDAD</span>
+                    <h2 class="display-5 fw-bold mb-3">604 OPORTUNIDADES PARA CONSTRUIR ALGO TUYO</h2>
+                    <p class="lead text-muted mb-4">
+                        Actualmente, Riberas de Comate cuenta con <strong>604 solares disponibles</strong>, ofreciéndote diferentes alternativas para elegir el espacio que mejor se adapte a tu proyecto y presupuesto.
+                    </p>
+                    <p class="mb-4 text-muted">
+                        Ya sea que estés buscando invertir, construir una villa de descanso o comenzar a crear patrimonio, aquí tienes espacio para hacerlo realidad.
+                    </p>
+                    <div class="p-3 bg-white rounded-4 border-start border-4 border-success mb-4 shadow-sm">
+                        <p class="mb-0 fw-semibold" style="color: var(--brand-dark);">"Tu terreno puede ser el comienzo de algo mucho más grande."</p>
+                    </div>
+                    <a href="#contacto" class="btn btn-brand">VER DISPONIBILIDAD</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="img/Escena 13_upscale01.png" alt="Fachada Riberas de Comate" class="img-fluid img-arch shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="hero-content">
+    <!-- POSIBILIDADES -->
+    <section class="py-5 bg-blue-soft">
+        <div class="container py-4">
+            <div class="row align-items-center gy-4">
+                <div class="col-lg-6">
+                    <h2 class="display-6 fw-bold mb-3">NO ESTÁS COMPRANDO SOLO METROS CUADRADOS</h2>
+                    <p class="fs-5 fw-bold mb-4" style="color: var(--brand-green-deep);">Estás comprando posibilidades:</p>
+                    <div class="d-flex flex-column gap-3 mb-4">
+                        <div class="d-flex align-items-center gap-3 bg-white p-3 rounded-3 shadow-sm">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                            <div><strong>La posibilidad de construir:</strong> Desarrolla la villa de tus sueños.</div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 bg-white p-3 rounded-3 shadow-sm">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                            <div><strong>La posibilidad de invertir:</strong> Un activo de alta plusvalía a futuro.</div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 bg-white p-3 rounded-3 shadow-sm">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                            <div><strong>Escapar de la rutina:</strong> Un refugio natural a minutos de la ciudad.</div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 bg-white p-3 rounded-3 shadow-sm">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                            <div><strong>Crear recuerdos en familia:</strong> Espacios de esparcimiento único.</div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 bg-white p-3 rounded-3 shadow-sm">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                            <div><strong>Consolidar tu patrimonio:</strong> Propiedad raíz segura y tangible.</div>
+                        </div>
+                    </div>
+                    <p class="text-muted">Riberas de Comate nace para quienes entienden que comprar tierra es pensar más allá del presente.</p>
+                    <a href="#contacto" class="btn btn-brand mt-2">QUIERO INVERTIR EN RIBERAS DE COMATE</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="img/espacios_abiertos.webp" style="height: 30rem;" alt="Interiorismo Casa Club" class="img-fluid img-arch shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="hero-number">
-01 / 05
-</div>
+    <!-- POR QUÉ INVERTIR -->
+    <section class="py-5" id="por-que">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="badge-soft-mint mb-2">BENEFICIOS</span>
+                <h2 class="display-6 fw-bold">¿POR QUÉ INVERTIR EN RIBERAS DE COMATE?</h2>
+                <p class="text-muted">Un proyecto pensado estratégicamente para tu tranquilidad y retorno</p>
+            </div>
 
-<div class="label">
-Proyecto residencial
-</div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card h-100">
+                        <div class="icon-bubble bg-mint text-success"><i class="bi bi-tree"></i></div>
+                        <h3 class="h5 fw-bold">Entorno natural</h3>
+                        <p class="text-muted small mb-0">Disfruta de tranquilidad, aire puro y espacios concebidos para alejarte del ritmo acelerado de la ciudad.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card h-100">
+                        <div class="icon-bubble bg-blue-soft text-primary"><i class="bi bi-bounding-box-circles"></i></div>
+                        <h3 class="h5 fw-bold">Solares desde 400 m²</h3>
+                        <p class="text-muted small mb-0">El espacio necesario para desarrollar una propiedad totalmente adaptada a tu estilo de vida.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card h-100">
+                        <div class="icon-bubble bg-tint-soft" style="color: var(--brand-green-deep);"><i class="bi bi-cash-stack"></i></div>
+                        <h3 class="h5 fw-bold">Desde US$100 por m²</h3>
+                        <p class="text-muted small mb-0">Una oportunidad inmobiliaria competitiva que te permite comenzar a construir patrimonio desde hoy.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card h-100">
+                        <div class="icon-bubble bg-tint-soft" style="color: var(--brand-green-deep);"><i class="bi bi-credit-card-2-front"></i></div>
+                        <h3 class="h5 fw-bold">Separación desde US$1,000</h3>
+                        <p class="text-muted small mb-0">Da el primer paso hacia tu propiedad sin necesidad de realizar una gran inversión inicial.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card h-100">
+                        <div class="icon-bubble bg-mint text-success"><i class="bi bi-graph-up-arrow"></i></div>
+                        <h3 class="h5 fw-bold">Inversión tangible</h3>
+                        <p class="text-muted small mb-0">Adquirir tierra te permite incorporar un activo inmobiliario a tu patrimonio y desarrollarlo a tu ritmo.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card h-100">
+                        <div class="icon-bubble bg-blue-soft text-primary"><i class="bi bi-heart"></i></div>
+                        <h3 class="h5 fw-bold">Un lugar para compartir</h3>
+                        <p class="text-muted small mb-0">Crea un espacio pensado para descansar, disfrutar y construir nuevas historias en familia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h1>
-Quintas<br>
-Towers
-</h1>
+    <!-- UN PROYECTO QUE SIGUE CRECIENDO -->
+    <section class="py-5 bg-mint">
+        <div class="container py-4 text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <span class="badge-soft-teal mb-3">URBANIZACIÓN EN PROCESO</span>
+                    <h2 class="display-6 fw-bold mb-3">UN PROYECTO QUE SIGUE CRECIENDO</h2>
+                    <p class="lead text-muted mb-4">
+                        Riberas de Comate se encuentra actualmente en proceso de urbanización, avanzando hacia la creación de una comunidad donde naturaleza, tranquilidad y desarrollo se unen.
+                    </p>
+                    <p class="fs-5 fw-bold mb-4" style="color: var(--brand-dark);">
+                        Hoy eliges el terreno. Mañana decides todo lo que quieres construir sobre él.
+                    </p>
+                    <a href="#contacto" class="btn btn-brand">CONOCER EL PROYECTO</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<p class="description hero-description">
+    <!-- PLANES DE PAGO -->
+    <section class="py-5" id="planes">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="badge-soft-mint mb-2">FACILIDADES</span>
+                <h2 class="display-6 fw-bold">DOS FORMAS DE COMENZAR TU INVERSIÓN</h2>
+                <p class="text-muted">Riberas de Comate ofrece diferentes alternativas para facilitar la adquisición de tu solar.</p>
+            </div>
 
-Tres torres residenciales de nueve niveles
-en Madre Vieja Sur, San Cristóbal.
+            <div class="row g-4 justify-content-center">
+                <!-- PLAN 1 -->
+                <div class="col-md-6 col-lg-5">
+                    <div class="p-4 bg-white rounded-4 border-0 shadow-sm h-100 d-flex flex-column">
+                        <span class="badge-soft-mint align-self-start mb-3">OPCIÓN TRADICIONAL</span>
+                        <h3 class="h3 fw-bold mb-3">PLAN DE PAGO 1</h3>
+                        
+                        <ul class="list-unstyled mb-4">
+                            <li class="py-2 border-bottom"><strong>US$1,000</strong> de reserva</li>
+                            <li class="py-2 border-bottom"><strong>50%</strong> durante 24 meses <br><small class="text-muted">Pagos lineales distribuidos durante 24 meses.</small></li>
+                            <li class="py-2"><strong>50%</strong> contra entrega <br><small class="text-muted">Pago final contra entrega o financiado.</small></li>
+                        </ul>
+                        
+                        <div class="mt-auto">
+                            <a href="#contacto" class="btn btn-brand-outline w-100">SOLICITAR COTIZACIÓN</a>
+                        </div>
+                    </div>
+                </div>
 
-Apartamentos de 1, 2 y 3 habitaciones
-pensados para vivir con comodidad,
-modernidad y proyección.
+                <!-- PLAN 2 -->
+                <div class="col-md-6 col-lg-5">
+                    <div class="p-4 bg-white rounded-4 border border-2 border-success shadow-sm h-100 d-flex flex-column position-relative">
+                        <span class="position-absolute top-0 end-0 badge-ribbon fw-bold px-3 py-1 rounded-bl small" style="border-bottom-left-radius: 1rem; border-top-right-radius: 1rem;">MÁS SOLICITADO</span>
+                        <span class="badge-soft-teal align-self-start mb-3">OPCIÓN FLEXIBLE</span>
+                        <h3 class="h3 fw-bold mb-3">PLAN DE PAGO 2</h3>
+                        
+                        <ul class="list-unstyled mb-4">
+                            <li class="py-2 border-bottom"><strong>US$1,000</strong> de reserva</li>
+                            <li class="py-2 border-bottom"><strong>10%</strong> para firma de contrato</li>
+                            <li class="py-2 border-bottom"><strong>40%</strong> durante 24 meses <br><small class="text-muted">Pagos distribuidos durante los siguientes 24 meses.</small></li>
+                            <li class="py-2"><strong>50%</strong> contra entrega <br><small class="text-muted">Pago final contra entrega o financiado.</small></li>
+                        </ul>
+                        
+                        <div class="mt-auto">
+                            <a href="#contacto" class="btn btn-brand w-100">QUIERO ESTE PLAN DE PAGO</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-</p>
+            <p class="small text-muted text-center mt-4">* Los precios, condiciones, disponibilidad y opciones de financiamiento están sujetos a actualización.</p>
+        </div>
+    </section>
 
+    <!-- COTIZADOR PRECIO ESTIMADO -->
+    <section class="py-5 bg-blue-soft text-center">
+        <div class="container py-4">
+            <h2 class="display-6 fw-bold mb-3">¿CUÁNTO PUEDE COSTAR TU SOLAR?</h2>
+            <p class="lead text-muted mb-4">Con solares desde 400 m² y un precio desde US$100 por m², puedes encontrar propiedades desde aproximadamente:</p>
+            <div class="display-3 fw-extrabold mb-2" style="color: var(--brand-green-deep);">US$40,000</div>
+            <p class="text-muted mb-4">dependiendo del metraje, ubicación y disponibilidad del solar seleccionado.<br><strong>Y puedes comenzar el proceso con una separación de US$1,000.</strong></p>
+            <a href="#contacto" class="btn btn-brand px-5 py-3">QUIERO RECIBIR UNA COTIZACIÓN</a>
+        </div>
+    </section>
 
-<div class="hero-actions">
+    <!-- OBJETIVOS DE INVERSIÓN -->
+    <section class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="display-6 fw-bold">UNA INVERSIÓN QUE SE ADAPTA A DIVERSOS OBJETIVOS</h2>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                        <h4 class="h5 fw-bold"><i class="bi bi-house-heart text-success me-2"></i>Para tu futura casa</h4>
+                        <p class="text-muted small mb-0">Encuentra el espacio para crear una propiedad completamente adaptada a tu estilo.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                        <h4 class="h5 fw-bold"><i class="bi bi-sun text-warning me-2"></i>Casa de descanso</h4>
+                        <p class="text-muted small mb-0">Crea ese lugar al que quieras regresar cuando necesites alejarte de la rutina.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                        <h4 class="h5 fw-bold"><i class="bi bi-graph-up-arrow text-info me-2"></i>Inversión inmobiliaria</h4>
+                        <p class="text-muted small mb-0">Incorpora un terreno a tu patrimonio y evalúa sus posibilidades de desarrollo a largo plazo.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                        <h4 class="h5 fw-bold"><i class="bi bi-globe-americas text-primary me-2"></i>Para dominicanos en el exterior</h4>
+                        <p class="text-muted small mb-0">Mantén una inversión inmobiliaria en República Dominicana y construye un espacio al cual puedas regresar.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                        <h4 class="h5 fw-bold"><i class="bi bi-people text-danger me-2"></i>Para tu familia</h4>
+                        <p class="text-muted small mb-0">Adquiere hoy un terreno que mañana pueda convertirse en parte del patrimonio familiar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<a
-href="#apartamentos"
-class="button button-primary"
->
-Tour 360
-</a>
+    <!-- GALERÍA DE FOTOGRAFÍAS -->
+<section class="py-5" id="galeria">
+    <div class="container py-4">
 
-<a
-href="#contact"
-class="button-link"
->
-Habla con un asesor
-</a>
+        <!-- ENCABEZADO -->
+        <div class="text-center mb-5">
+            <span class="badge-soft-mint mb-2">
+                CONOCE RIBERAS DE COMATE
+            </span>
 
-</div>
+            <h2 class="display-6 fw-bold">
+                UN LUGAR PARA IMAGINAR TU FUTURO
+            </h2>
 
-</div>
+            <p class="text-muted mx-auto" style="max-width: 700px;">
+                Descubre los espacios, paisajes y detalles de un proyecto
+                concebido para disfrutar de la naturaleza y crear nuevas
+                oportunidades.
+            </p>
+        </div>
 
+        <!-- GALERÍA -->
+        <div class="photo-gallery">
 
+            <!-- FOTO PRINCIPAL -->
+            <div class="gallery-item gallery-large">
+                <img src="img/foto-portada-1800.jpg"
+                     alt="Vista general de Riberas de Comate">
 
-<div class="hero-visual">
+                <div class="gallery-overlay">
+                    <span>RIBERAS DE COMATE</span>
+                    <h3>Un entorno para disfrutar</h3>
+                </div>
+            </div>
 
+            <!-- FOTO 2 -->
+            <div class="gallery-item">
+                <img src="img/18.jpg"
+                     alt="Entrada del proyecto Riberas de Comate">
 
-<div class="hero-main-image">
+                <div class="gallery-overlay">
+                    <span>EL PROYECTO</span>
+                    <h3>Un nuevo comienzo</h3>
+                </div>
+            </div>
 
-<img
-src="./img/QT_EXT C2_hires.jpg"
-alt="Quintas Towers"
->
+            <!-- FOTO 3 -->
+            <div class="gallery-item">
+                <img src="img/32.jpg"
+                     alt="Espacios naturales del proyecto">
 
-</div>
+                <div class="gallery-overlay">
+                    <span>NATURALEZA</span>
+                    <h3>Espacios para respirar</h3>
+                </div>
+            </div>
+            
 
+            <!-- FOTO 4 -->
+            <div class="gallery-item">
+                <img src="img/RBL_0008 (1) (1).jpg"
+                     alt="Amenidades de Riberas de Comate">
 
-<div class="hero-small-image">
+                <div class="gallery-overlay">
+                    <span>AMENIDADES</span>
+                    <h3>Momentos para compartir</h3>
+                </div>
+            </div>
 
-<img
-src="./img/QT_SOCIAL_C3 hires.jpg"
-alt="Interior residencial"
->
+            <!-- FOTO 5 -->
+            <div class="gallery-item">
+                <img src="img/RBL_0054.jpg"
+                     alt="Paisaje del proyecto">
 
-</div>
+                <div class="gallery-overlay">
+                    <span>UN ENTORNO DIFERENTE</span>
+                    <h3>Tu espacio, tu futuro</h3>
+                </div>
+            </div>
 
+        </div>
 
-<div class="hero-location">
+        <!-- BOTÓN -->
+        <div class="text-center mt-5">
+            <a href="#contacto" class="btn btn-brand">
+                QUIERO CONOCER EL PROYECTO
+            </a>
+        </div>
 
-Madre Vieja Sur · San Cristóbal
-
-</div>
-
-
-</div>
-
-
-</div>
-
-</div>
-
+    </div>
 </section>
 
-
-
-<!-- =====================================================
-QUICK DATA
-===================================================== -->
-
-<section class="quick-data">
-
-<div class="container">
-
-<div class="quick-grid">
-
-
-<div class="quick-item">
-
-<div class="quick-number">
-03
-</div>
-
-<strong>
-Torres
-</strong>
-
-<span>
-Proyecto residencial
-</span>
-
-</div>
-
-
-<div class="quick-item">
-
-<div class="quick-number">
-10
-</div>
-
-<strong>
-Niveles
-</strong>
-
-<span>
-Por torre
-</span>
-
-</div>
-
-
-<div class="quick-item">
-
-<div class="quick-number">
-1 · 2 · 3
-</div>
-
-<strong>
-Habitaciones
-</strong>
-
-<span>
-Tipologías disponibles
-</span>
-
-</div>
-
-
-<div class="quick-item">
-
-<div class="quick-number">
-24/7
-</div>
-
-<strong>
-Planta eléctrica
-</strong>
-
-<span>
-Todo el proyecto
-</span>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-INTRO
-===================================================== -->
-
-<section class="section intro" id="proyecto">
-
-<div class="container">
-
-<div class="intro-grid">
-
-
-<div class="intro-image">
-
-<img
-src="./img/QT_APT A_COCINA_hires.jpg"
-alt="Apartamento moderno"
->
-
-<div class="intro-caption">
-Diseñado<br>
-para vivir
-</div>
-
-</div>
-
-
-<div class="intro-content">
-
-<div class="label">
-El proyecto
-</div>
-
-<h2 class="title">
-Un lugar para<br>
-hacerlo tuyo.
-</h2>
-
-<p class="description">
-
-Quintas Towers combina arquitectura contemporánea,
-funcionalidad y confort en una propuesta residencial
-pensada para familias que buscan calidad de vida.
-
-</p>
-
-<div class="intro-points">
-
-
-<div class="intro-point">
-
-<strong>
-Diseño contemporáneo
-</strong>
-
-<span>
-Arquitectura moderna y funcional.
-</span>
-
-</div>
-
-
-<div class="intro-point">
-
-<strong>
-Vida familiar
-</strong>
-
-<span>
-Apartamentos de 1, 2 y 3 habitaciones.
-</span>
-
-</div>
-
-
-<div class="intro-point">
-
-<strong>
-Ubicación estratégica
-</strong>
-
-<span>
-Madre Vieja Sur, San Cristóbal.
-</span>
-
-</div>
-
-
-<div class="intro-point">
-
-<strong>
-Proyección
-</strong>
-
-<span>
-Una zona con potencial de crecimiento.
-</span>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-APARTMENTS
-===================================================== -->
-
-<section class="section apartments" id="apartamentos">
-
-<div class="container">
-
-
-<div class="section-header">
-
-<div>
-
-<div class="label">
-Tipologías
-</div>
-
-<h2 class="title">
-Encuentra tu<br>
-espacio.
-</h2>
-
-</div>
-
-<p class="description">
-
-Tres opciones para diferentes formas
-de vivir y diferentes necesidades.
-
-</p>
-
-</div>
-
-
-<div class="apartment-grid">
-
-
-<article class="apartment-card">
-
-<div class="apartment-image">
-
-<img
-src="./img/QT_APT A_HABITACION_hires.jpg"
-alt="Apartamento de 1 habitación"
->
-
-</div>
-
-<div class="apartment-content">
-
-<div class="apartment-index">
-01 / TIPOLOGÍA
-</div>
-
-<h3 class="apartment-title">
-1 habitación
-</h3>
-
-<div class="apartment-meta">
-
-<div class="meta">
-
-<strong>
-1
-</strong>
-
-<span>
-Habitación
-</span>
-
-</div>
-
-<div class="meta">
-
-<strong>
-Funcional
-</strong>
-
-<span>
-Distribución
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<article class="apartment-card">
-
-<div class="apartment-image">
-
-<img
-src="./img/QT_APT B_SALA COMEDOR _hires.jpg"
-alt="Apartamento de 2 habitaciones"
->
-
-</div>
-
-<div class="apartment-content">
-
-<div class="apartment-index">
-02 / TIPOLOGÍA
-</div>
-
-<h3 class="apartment-title">
-2 habitaciones
-</h3>
-
-<div class="apartment-meta">
-
-<div class="meta">
-
-<strong>
-2
-</strong>
-
-<span>
-Habitaciones
-</span>
-
-</div>
-
-<div class="meta">
-
-<strong>
-Familiar
-</strong>
-
-<span>
-Distribución
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<article class="apartment-card">
-
-<div class="apartment-image">
-
-<img
-src="./img/QT_SOCIAL TORRE_C1.jpg"
-alt="Apartamento de 3 habitaciones"
->
-
-</div>
-
-<div class="apartment-content">
-
-<div class="apartment-index">
-03 / TIPOLOGÍA
-</div>
-
-<h3 class="apartment-title">
-3 habitaciones
-</h3>
-
-<div class="apartment-meta">
-
-<div class="meta">
-
-<strong>
-3
-</strong>
-
-<span>
-Habitaciones
-</span>
-
-</div>
-
-<div class="meta">
-
-<strong>
-Amplio
-</strong>
-
-<span>
-Distribución
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-</article>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-WHY
-===================================================== -->
-
-<section class="section why">
-
-<div class="container">
-
-<div class="why-grid">
-
-
-<div class="why-content">
-
-<div class="label">
-¿Por qué Quintas Towers?
-</div>
-
-<h2 class="title">
-Una decisión<br>
-para hoy y mañana.
-</h2>
-
-<p class="description">
-
-Una combinación de ubicación,
-amenidades y diseño que convierte
-el proyecto en una propuesta
-atractiva para vivir o invertir.
-
-</p>
-
-</div>
-
-
-<div class="why-list">
-
-
-<div class="why-item">
-
-<div class="why-number">
-01
-</div>
-
-<h3>
-Ubicación
-</h3>
-
-<p>
-En Madre Vieja Sur, cerca de comercios,
-servicios y principales vías.
-</p>
-
-</div>
-
-
-<div class="why-item">
-
-<div class="why-number">
-02
-</div>
-
-<h3>
-Confort
-</h3>
-
-<p>
-Espacios pensados para facilitar
-la vida cotidiana.
-</p>
-
-</div>
-
-
-<div class="why-item">
-
-<div class="why-number">
-03
-</div>
-
-<h3>
-Amenidades
-</h3>
-
-<p>
-Piscina, gimnasio, salones de eventos,
-terrazas y áreas de juegos.
-</p>
-
-</div>
-
-
-<div class="why-item">
-
-<div class="why-number">
-04
-</div>
-
-<h3>
-Proyección
-</h3>
-
-<p>
-Una zona residencial con potencial
-de crecimiento.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-AMENITIES
-===================================================== -->
-
-<section class="section amenities" id="amenidades">
-
-<div class="container">
-
-<div class="amenities-grid">
-
-
-<div class="amenities-photo">
-
-<img
-src="./img/QT_SOCIAL_C1_hires.jpg"
-alt="Piscina residencial"
->
-
-</div>
-
-
-<div class="amenities-content">
-
-<div class="label">
-Amenidades
-</div>
-
-<h2 class="title">
-Todo lo que<br>
-necesitas.
-</h2>
-
-
-<div class="amenity-grid">
-
-
-<div class="amenity-card">
-
-<strong>
-Lobby a doble altura
-</strong>
-
-<span>
-Un acceso moderno y elegante.
-</span>
-
-</div>
-
-
-<div class="amenity-card">
-
-<strong>
-Gimnasio equipado
-</strong>
-
-<span>
-Espacio para mantenerte activo.
-</span>
-
-</div>
-
-
-<div class="amenity-card">
-
-<strong>
-Piscina
-</strong>
-
-<span>
-Un espacio para relajarte.
-</span>
-
-</div>
-
-
-<div class="amenity-card">
-
-<strong>
-Salones de eventos
-</strong>
-
-<span>
-Espacios para compartir.
-</span>
-
-</div>
-
-
-<div class="amenity-card">
-
-<strong>
-Áreas de juegos
-</strong>
-
-<span>
-Pensadas para toda la familia.
-</span>
-
-</div>
-
-
-<div class="amenity-card">
-
-<strong>
-Terrazas
-</strong>
-
-<span>
-Espacios abiertos para disfrutar.
-</span>
-
-</div>
-
-
-<div class="amenity-card">
-
-<strong>
-Planta eléctrica 24 horas
-</strong>
-
-<span>
-Cobertura para todo el proyecto.
-</span>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-LOCATION
-===================================================== -->
-
-<section class="section location" id="ubicacion">
-
-<div class="container">
-
-<div class="location-grid">
-
-
-<div class="location-visual">
-
-<div class="location-image">
-
-<img
-src="./img/QT_SOCIAL TORRE_C2.jpg"
-alt="Zona residencial"
->
-
-</div>
-
-
-<div class="location-card">
-
-<h3>
-Madre Vieja Sur
-</h3>
-
-<div class="location-list">
-
-<div>
-
-<span>
-Zona
-</span>
-
-Residencial
-
-</div>
-
-
-<div>
-
-<span>
-La Sirena
-</span>
-
-Cerca
-
-</div>
-
-
-<div>
-
-<span>
-Bravo
-</span>
-
-Cerca
-
-</div>
-
-
-<div>
-
-<span>
-Smart Fit
-</span>
-
-Cerca
-
-</div>
-
-
-<div>
-
-<span>
-Santo Domingo
-</span>
-
-20 min.
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<div>
-
-<div class="label">
-Ubicación
-</div>
-
-<h2 class="title">
-Cerca de todo.<br>
-Lejos del ruido.
-</h2>
-
-<p class="description" style="margin-top:25px;">
-
-Quintas Towers está ubicado en Madre Vieja Sur,
-San Cristóbal, una zona residencial con acceso
-a comercios, servicios y espacios necesarios
-para el día a día.
-
-</p>
-
-<a
-href="https://www.google.com/maps/search/?api=1&query=Madre+Vieja+Sur+San+Cristobal+Republica+Dominicana"
-target="_blank"
-class="button button-primary"
-style="margin-top:30px;"
->
-Ver en Google Maps
-</a>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-GALLERY
-===================================================== -->
-
-<section class="section gallery" id="galeria">
-
-<div class="container">
-
-
-<div class="section-header">
-
-<div>
-
-<div class="label">
-Galería
-</div>
-
-<h2 class="title">
-Imagina vivir aquí.
-</h2>
-
-</div>
-
-<p class="description">
-
-Una mirada al concepto y estilo de vida
-de Quintas Towers.
-
-</p>
-
-</div>
-
-
-<div class="gallery-grid">
-
-
-<div class="gallery-main">
-
-<img
-src="./img/QT_EXT C2_hires.jpg"
-alt="Interior moderno"
->
-
-</div>
-
-
-<div class="gallery-column">
-
-
-<div class="gallery-small">
-
-<img
-src="./img/QT_APT A_COCINA_hires.jpg"
-alt="Sala"
->
-
-</div>
-
-
-<div class="gallery-small">
-
-<img
-src="./img/QT_APT A_HABITACION_hires.jpg"
-alt="Apartamento"
->
-
-</div>
-
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-CONTACT
-===================================================== -->
-
-<section class="section contact" id="contact">
-
-<div class="container">
-
-<div class="contact-box">
-
-
-<div class="contact-intro">
-
-<div class="label">
-Quintas Towers
-</div>
-
-<h2 class="title">
-¿Quieres conocer<br>
-más del proyecto?
-</h2>
-
-<p class="description">
-
-Déjanos tus datos y un asesor de
-CONNUVAL se pondrá en contacto
-contigo.
-
-</p>
-
-</div>
-
-
-<form class="contact-form">
-
-
-<div class="form-row">
-
-<div class="form-group">
-
-<label> Nombre </label>
-
-<input type="text"placeholder="Tu nombre">
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Teléfono
-</label>
-
-<input
-type="tel"
-placeholder="809 000 0000"
->
-
-</div>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Correo
-</label>
-
-<input
-type="email"
-placeholder="correo@email.com"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Interés
-</label>
-
-<select>
-
-<option>
-Seleccionar
-</option>
-
-<option>
-1 habitación
-</option>
-
-<option>
-2 habitaciones
-</option>
-
-<option>
-3 habitaciones
-</option>
-
-<option>
-Información general
-</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Mensaje
-</label>
-
-<textarea
-placeholder="Cuéntanos qué deseas conocer..."
-></textarea>
-
-</div>
-
-
-<button
-type="submit"
-class="submit"
->
-Solicitar información
-</button>
-
-
-</form>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-FOOTER
-===================================================== -->
-
-<footer>
-
-<div class="container">
-
-
-<div class="footer-grid">
-
-
-<div>
-
-<div class="footer-logo">
-CONNUVAL
-</div>
-
-<p>
-Constructora Núñez Valdéz.
-Construyendo excelencia y generando confianza.
-</p>
-
-</div>
-
-
-<div>
-
-<h4>
-Quintas Towers
-</h4>
-
-<a href="#proyecto">
-Proyecto
-</a>
-
-<a href="#apartamentos">
-Apartamentos
-</a>
-
-<a href="#amenidades">
-Amenidades
-</a>
-
-<a href="#ubicacion">
-Ubicación
-</a>
-
-<a href="#galeria">
-Galería
-</a>
-
-</div>
-
-
-<div>
-
-<h4>
-Contacto
-</h4>
-
-<a href="tel:+18096821443">
-809-682-1443
-</a>
-
-<a href="mailto:info@connuval.com.do">
-info@connuval.com.do
-</a>
-
-<a
-href="https://api.whatsapp.com/send?phone=18096277229"
-target="_blank"
->
-WhatsApp
-</a>
-
-</div>
-
-
-</div>
-
-
-<div class="footer-bottom">
-
-<span>
-© 2026 CONNUVAL
-</span>
-
-<span>
-Quintas Towers · San Cristóbal, República Dominicana
-</span>
-
-</div>
-
-
-</div>
-
-</footer>
-
-
-
-<!-- =====================================================
-WHATSAPP
-===================================================== -->
-
-<a
-href="https://api.whatsapp.com/send?phone=18096277229&text=Hola%2C%20estoy%20interesado%20en%20conocer%20Quintas%20Towers."
-target="_blank"
-class="whatsapp"
-aria-label="WhatsApp"
->
-WA
-</a>
-
-
+    <!-- BAYAGUANA & MAPA -->
+    <section class="py-5 bg-mint">
+        <div class="container py-4">
+            <div class="row align-items-center gy-4">
+                <div class="col-lg-6">
+                    <span class="badge-soft-mint mb-2">UBICACIÓN</span>
+                    <h2 class="display-6 fw-bold mb-3">BAYAGUANA: NATURALEZA, TRANQUILIDAD Y ESPACIO</h2>
+                    <p class="lead text-muted mb-4">Riberas de Comate está ubicado en Bayaguana, República Dominicana, en un entorno que permite disfrutar de una experiencia diferente a la vida urbana.</p>
+                    
+                    <div class="d-flex flex-column gap-2 mb-4">
+                        <div class="d-flex align-items-center gap-2"><i class="bi bi-check2-circle text-success fs-5"></i> Más espacio para desarrollar tus ideas.</div>
+                        <div class="d-flex align-items-center gap-2"><i class="bi bi-check2-circle text-success fs-5"></i> Entorno rodeado de pura naturaleza.</div>
+                        <div class="d-flex align-items-center gap-2"><i class="bi bi-check2-circle text-success fs-5"></i> Tranquilidad garantizada para tu familia.</div>
+                        <div class="d-flex align-items-center gap-2"><i class="bi bi-check2-circle text-success fs-5"></i> Nuevas posibilidades para construir patrimonio.</div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="map-placeholder text-center p-4">
+                        <div>
+                            <i class="bi bi-pin-map-fill text-success fs-1 mb-2"></i>
+                            <p class="fw-bold mb-1">[AGREGAR MAPA Y TIEMPOS CONFIRMADOS DESDE SANTO DOMINGO Y PUNTOS DE REFERENCIA]</p>
+                            <span class="small text-muted">Ubicación exacta Bayaguana, R.D.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGENDAR VISITA CTA -->
+    <section class="py-5">
+        <div class="container py-4">
+            <div class="bg-blue-soft rounded-4 p-4 p-md-5">
+                <div class="row align-items-center gy-4">
+                    <div class="col-lg-7">
+                        <span class="badge-soft-mint mb-3">VISITA GUIADA</span>
+                        <h2 class="display-6 fw-bold mb-2">¿QUIERES CONOCERLO EN PERSONA?</h2>
+                        <h3 class="h4 mb-3" style="color: var(--brand-green-deep);">Agenda una visita a Riberas de Comate</h3>
+                        <p class="text-muted mb-4">Una fotografía puede mostrarte el proyecto. Pero visitarlo te permite entender realmente todo lo que puedes hacer aquí. Nuestro equipo puede acompañarte para conocer el desarrollo, revisar las opciones disponibles y ayudarte a identificar el solar más conveniente para ti.</p>
+                        
+                        <p class="fw-bold mb-2">Durante tu visita podrás conocer:</p>
+                        <div class="row g-2 mb-4 small text-muted">
+                            <div class="col-6"><i class="bi bi-check-circle-fill text-success me-1"></i> El proyecto en desarrollo</div>
+                            <div class="col-6"><i class="bi bi-check-circle-fill text-success me-1"></i> Precios por m²</div>
+                            <div class="col-6"><i class="bi bi-check-circle-fill text-success me-1"></i> Solares disponibles</div>
+                            <div class="col-6"><i class="bi bi-check-circle-fill text-success me-1"></i> Amenidades y Casa Club</div>
+                            <div class="col-6"><i class="bi bi-check-circle-fill text-success me-1"></i> Diferentes ubicaciones</div>
+                            <div class="col-6"><i class="bi bi-check-circle-fill text-success me-1"></i> Avances de urbanización</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 text-center text-lg-end">
+                        <div class="d-grid gap-3">
+                            <a href="#contacto" class="btn btn-brand btn-lg py-3">AGENDAR MI VISITA</a>
+                            <a href="https://wa.me/18098169300" target="_blank" class="btn btn-whatsapp btn-lg"><i class="bi bi-whatsapp me-2"></i>HABLAR CON UN ASESOR</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-5" id="faq">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="badge-soft-mint mb-2">RESPUESTAS RÁPIDAS</span>
+                <h2 class="display-6 fw-bold">PREGUNTAS FRECUENTES</h2>
+                <p class="text-muted">Aclara tus dudas sobre el proyecto Riberas de Comate</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion accordion-flush" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f1">¿Desde qué tamaño están disponibles los solares?</button>
+                            </h2>
+                            <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Los solares de Riberas de Comate están disponibles desde 400 m².</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f2">¿Cuál es el precio por metro cuadrado?</button>
+                            </h2>
+                            <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Actualmente los solares están disponibles desde US$100 por m², sujeto a ubicación, metraje y disponibilidad.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f3">¿Cuál es el precio aproximado del solar más económico?</button>
+                            </h2>
+                            <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Tomando como referencia un solar de 400 m² desde US$100/m², una propiedad puede comenzar aproximadamente desde US$40,000.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f4">¿Con cuánto puedo separar?</button>
+                            </h2>
+                            <div id="f4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Puedes comenzar el proceso con una reserva de US$1,000.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f5">¿Existen planes de pago?</button>
+                            </h2>
+                            <div id="f5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Sí. Riberas de Comate cuenta con diferentes esquemas de pago que permiten distribuir parte del valor de la propiedad durante 24 meses.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f6">¿Cuántos solares hay disponibles?</button>
+                            </h2>
+                            <div id="f6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Actualmente el proyecto cuenta con aproximadamente 604 solares disponibles.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f7">¿Dónde está ubicado?</button>
+                            </h2>
+                            <div id="f7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Riberas de Comate está ubicado en Bayaguana, República Dominicana.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f8">¿En qué etapa está el proyecto?</button>
+                            </h2>
+                            <div id="f8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Actualmente se encuentra en proceso de urbanización.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f9">¿Qué amenidades tendrá?</button>
+                            </h2>
+                            <div id="f9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Entre las amenidades contempladas se encuentran casa club, piscina, lago y espacios naturales.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f10">¿Puedo comprar si vivo fuera de República Dominicana?</button>
+                            </h2>
+                            <div id="f10" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Sí. Nuestro equipo comercial puede orientarte sobre el proceso, documentación, disponibilidad y alternativas de pago.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DETALLADO COMPLETO -->
+    <section class="py-5 bg-mint">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border-0">
+                        <div class="text-center mb-4">
+                            <span class="badge-soft-teal mb-2">ASESORÍA PERSONALIZADA</span>
+                            <h2 class="h3 fw-bold">ENCUENTRA EL SOLAR QUE MEJOR SE ADAPTE A TI</h2>
+                            <p class="text-muted small">Cuéntanos qué estás buscando y nuestro equipo podrá mostrarte las opciones disponibles según tu presupuesto y objetivos.</p>
+                        </div>
+
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Nombre y apellido</label>
+                                    <input type="text" class="form-control bg-light border-0" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">WhatsApp / Teléfono</label>
+                                    <input type="tel" class="form-control bg-light border-0" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Correo electrónico</label>
+                                    <input type="email" class="form-control bg-light border-0" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">¿Dónde resides?</label>
+                                    <select class="form-select bg-light border-0" required>
+                                        <option value="" selected disabled>Selecciona ubicación</option>
+                                        <option>República Dominicana</option>
+                                        <option>Estados Unidos</option>
+                                        <option>Canadá</option>
+                                        <option>Europa</option>
+                                        <option>Otro</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">¿Cuál es tu objetivo principal?</label>
+                                    <select class="form-select bg-light border-0" required>
+                                        <option value="" selected disabled>Selecciona objetivo</option>
+                                        <option>Quiero invertir</option>
+                                        <option>Quiero construir una vivienda</option>
+                                        <option>Quiero una casa de descanso</option>
+                                        <option>Quiero comprar para el futuro</option>
+                                        <option>Todavía estoy evaluando</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Presupuesto aproximado</label>
+                                    <select class="form-select bg-light border-0" required>
+                                        <option value="" selected disabled>Selecciona rango</option>
+                                        <option>US$40,000 – US$50,000</option>
+                                        <option>US$50,000 – US$75,000</option>
+                                        <option>US$75,000 – US$100,000</option>
+                                        <option>Más de US$100,000</option>
+                                        <option>Prefiero hablar con un asesor</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-brand w-100 py-3 text-uppercase fw-bold">RECIBIR SOLARES DISPONIBLES</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA HERO -->
+    <section class="py-5 text-center" style="background-color: var(--brand-dark); color: #ffffff;">
+        <div class="container py-4">
+            <h2 class="display-5 fw-bold mb-3 text-white">TU PRÓXIMA INVERSIÓN PUEDE COMENZAR CON US$1,000</h2>
+            <p class="fs-5 text-white-50 mb-4">
+                No tienes que construirlo todo hoy.<br>
+                Primero eliges el terreno. Luego construyes el proyecto. Después llegan las historias.<br>
+                <strong>Empieza por hacer tuyo el espacio.</strong>
+            </p>
+
+            <div class="d-flex justify-content-center gap-2 flex-wrap mb-4">
+                <span class="badge bg-white text-dark px-3 py-2 rounded-pill">Solares desde 400 m²</span>
+                <span class="badge bg-white text-dark px-3 py-2 rounded-pill">Desde US$100/m²</span>
+                <span class="badge bg-white text-dark px-3 py-2 rounded-pill">Reserva desde US$1,000</span>
+            </div>
+
+            <div class="mb-4">
+                <a href="tel:8098169300" class="fs-2 fw-bold text-decoration-none" style="color: var(--brand-green);">
+                    <i class="bi bi-telephone-fill me-2"></i> 809-816-9300
+                </a>
+            </div>
+
+            <a href="#contacto" class="btn btn-brand-light btn-lg px-5 py-3">QUIERO MI SOLAR EN RIBERAS DE COMATE</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-4 bg-white text-muted text-center border-top">
+        <div class="container">
+            <a href="https://connuval.com" target="_blank" style="text-decoration: none;">
+                <h4 class="fw-bold mb-1" style="color: var(--brand-dark);">CONNUVAL</h4>
+                <p class="small mb-0">Construimos espacios. Creamos oportunidades.</p>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
