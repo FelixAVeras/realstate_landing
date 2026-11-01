@@ -459,25 +459,131 @@
     }
 
 }
+
+/* Navbar */
+.navbar {
+    min-height: 90px;
+}
+
+/* Contenedor del logo */
+.brand-mark {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-right: 25px;
+}
+
+/* Imagen del logo */
+.brand-mark img {
+    display: block;
+    width: 90px;
+    height: auto;
+    object-fit: contain;
+    object-position: left center;
+}
+
+/* Menú */
+.navbar .nav-link {
+    color: #1c2444;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+    color: #4a5fb4;
+}
+
+/* Responsive para tablets y móviles */
+@media (max-width: 991px) {
+
+    .navbar {
+        min-height: 75px;
+    }
+
+    .brand-mark img {
+        width: 180px;
+        height: 60px;
+    }
+
+    .navbar-collapse {
+        padding-top: 15px;
+    }
+
+    .navbar-nav {
+        align-items: flex-start !important;
+    }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+
+    .brand-mark img {
+        width: 155px;
+        height: 55px;
+    }
+
+}
     </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg bg-white sticky-top py-2 shadow-sm">
+    <div class="container">
 
+        <a class="navbar-brand brand-mark" href="#" aria-label="Riberas de Comate">
+            <img
+                src="img/logo.png"
+                alt="Riberas de Comate">
+        </a>
+
+        <button
+            class="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Abrir menú">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
+
+                <li class="nav-item">
+                    <a class="nav-link fw-medium" href="#proyecto">El Proyecto</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link fw-medium" href="#amenidades">Amenidades</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link fw-medium" href="#por-que">¿Por qué Invertir?</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link fw-medium" href="#planes">Planes de Pago</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link fw-medium" href="#faq">FAQ</a>
+                </li>
+
+                <li class="nav-item ms-lg-2">
+                    <a href="#contacto" class="btn btn-brand btn-sm px-4">
+                        Agendar Visita
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg bg-white sticky-top py-3 shadow-sm">
+    <!-- <nav class="navbar navbar-expand-lg bg-white sticky-top py-3 shadow-sm">
         <div class="container">
             <a class="navbar-brand brand-mark" href="#" aria-label="Riberas del Comate">
-                <svg width="30" height="46" viewBox="0 0 30 46" fill="none" stroke="#6BB971" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <rect x="1.5" y="1.5" width="27" height="43" rx="13.5"/>
-                    <path d="M20 10v17M20 14l-3-2M20 14l3-2M20 19l-4-2.5M20 19l4-2.5M20 24l-5-3M20 24l5-3"/>
-                    <path d="M4 31c3-3 5-3 8 0s5 3 8 0 5-3 6 0"/>
-                    <path d="M4 36c3-3 5-3 8 0s5 3 8 0 5-3 6 0"/>
-                </svg>
-                <span class="bm-text">
-                    <span class="bm-1">Riberas</span>
-                    <span class="bm-2"><small>del</small>Comate</span>
-                    <span class="bm-3">BAYAGUANA · MONTE PLATA</span>
-                </span>
+                <img src="img/RIBERAS DE COMATE NUEVO LOGO_page-0001 (1).jpg.png" alt="">
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -495,7 +601,7 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
     <!-- HERO SECTION -->
     <header class="hero-banner">
@@ -588,7 +694,7 @@
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4">
                     <div class="card card-soft h-100">
-                        <img src="img/Escena 7_upscale01 (2).png" alt="Entrada Casa Club Riberas de Comate">
+                        <img src="img/Imagen_1 0.jpg" alt="Entrada Casa Club Riberas de Comate">
                         <div class="card-body p-4">
                             <span class="badge-soft-mint mb-2">ARQUITECTURA MODERNA</span>
                             <h3 class="h5 fw-bold mt-1">Casa Club & Pórtico</h3>
@@ -599,7 +705,7 @@
 
                 <div class="col-md-6 col-lg-4">
                     <div class="card card-soft h-100">
-                        <img src="img/Escena 4_upscale01.png" alt="Piscina y Jacuzzi Riberas de Comate">
+                        <img src="img/Escena 2_upscale01.png" alt="Piscina y Jacuzzi Riberas de Comate">
                         <div class="card-body p-4">
                             <span class="badge-soft-teal mb-2">RECREACIÓN</span>
                             <h3 class="h5 fw-bold mt-1">Piscina & Solárium</h3>
@@ -621,7 +727,7 @@
 
                 <div class="col-md-6 col-lg-4">
                     <div class="card card-soft h-100">
-                        <img src="img/32.jpg" alt="Terraza Exterior">
+                        <img src="img/18.jpg" alt="Terraza Exterior">
                         <div class="card-body p-4">
                             <span class="badge-soft-teal mb-2">ENTORNO VERDE</span>
                             <h3 class="h5 fw-bold mt-1">Áreas Naturales & Lago</h3>
@@ -1000,14 +1106,11 @@
                 <div class="col-lg-6">
                     <div class="map-placeholder text-center p-4">
                         <div>
-                            <i class="bi bi-pin-map-fill text-success fs-1 mb-2"></i>
-                            <p class="fw-bold mb-1">[AGREGAR MAPA Y TIEMPOS CONFIRMADOS DESDE SANTO DOMINGO Y PUNTOS DE REFERENCIA]</p>
-                            <span class="small text-muted">Ubicación exacta Bayaguana, R.D.</span>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3778.013348509542!2d-69.61694152480258!3d18.752940782386258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTjCsDQ1JzEwLjYiTiA2OcKwMzYnNTEuNyJX!5e0!3m2!1ses-419!2sdo!4v1793461066523!5m2!1ses-419!2sdo" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- AGENDAR VISITA CTA -->
